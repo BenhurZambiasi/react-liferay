@@ -1,0 +1,143 @@
+@import "./select.css";
+@import "./class.css";
+
+@font-face {
+  font-family: "Unimed Slab";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/unimedslab-bold-webfont.woff2") format("woff2"),
+    url("../fonts/unimedslab-bold-webfont.woff") format("woff"),
+    url("../fonts/unimedslab-bold-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Unimed Slab";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url("../fonts/unimedslab-bolditalic-webfont.woff2") format("woff2"),
+    url("../fonts/unimedslab-bolditalic-webfont.woff") format("woff"),
+    url("../fonts/unimedslab-bolditalic-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Unimed Slab";
+  font-style: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/unimedslab-regular-webfont.woff2") format("woff2"),
+    url("../fonts/unimedslab-regular-webfont.woff") format("woff"),
+    url("../fonts/unimedslab-regular-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Unimed Slab";
+  font-style: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("../fonts/unimedslab-regularitalic-webfont.woff2") format("woff2"),
+    url("../fonts/unimedslab-regularitalic-webfont.woff") format("woff"),
+    url("../fonts/unimedslab-regularitalic-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Unimed Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/unimedsans-regular-webfont.woff2") format("woff2"),
+    url("../fonts/unimedsans-regular-webfont.woff") format("woff"),
+    url("../fonts/unimedsans-regular-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Unimed Sans";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("../fonts/unimedsans-regularitalic-webfont.woff2") format("woff2"),
+    url("../fonts/unimedsans-regularitalic-webfont.woff") format("woff"),
+    url("../fonts/unimedsans-regularitalic-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Unimed Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/unimedsans-bold-webfont.woff2") format("woff2"),
+    url("../fonts/unimedsans-bold-webfont.woff") format("woff"),
+    url("../fonts/unimedsans-bold-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Unimed Sans";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url("../fonts/unimedsans-bolditalic-webfont.woff2") format("woff2"),
+    url("../fonts/unimedsans-bolditalic.woff") format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Unimed Sans";
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 35px;
+  background: var(--texto-menor-importncia, #808080);
+}
+
+/* Handle on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+.loading-spinner {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 4px solid #ccc;
+  margin: 12px 120px;
+  border-left-color: #b1d34b;
+  animation: spin 1s linear infinite;
+}

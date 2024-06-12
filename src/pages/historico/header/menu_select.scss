@@ -1,0 +1,53 @@
+.un-container-options-periodo {
+  display: flex;
+  flex-direction: column;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.un-periodo-option-container
+.un-periodo-option-label {
+  width: 100%;
+  height: 100%;
+  padding: 10px 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.un-periodo-option-container:hover {
+  background-color: #f4f4f4;
+}
+
+.un-periodo-option-container
+> .un-periodo-option-label::before {
+  font-family: "Material Icons";
+  content: "";
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  color: #00663d;
+  font-size: 14px;
+}
+
+.un-periodo-option-label:has(input:checked)::before {
+  content: "\e876";
+}
+
+.un-periodo-option-container:has(input:checked) {
+  background-color: #e2f4ed;
+}
+
+.un-periodo-option-container:has(input:checked)
+.un-periodo-option-label {
+  color: #00663d !important;
+  font-weight: 700;
+}

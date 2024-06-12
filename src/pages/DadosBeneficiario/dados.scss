@@ -1,0 +1,35 @@
+.container-tab {
+  display: flex;
+  padding-top: 24px;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border-bottom: 1px solid var(--light-light-d-1, #e2e4ea);
+  background: var(--light-white, #fff);
+
+  .btn-tab {
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    span {
+      color: var(--secondary-secondary, #4d4d4d);
+      font-family: "Unimed Sans";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 27px */
+    }
+
+    &.active {
+      border-bottom: 3px solid #00995f;
+
+      span {
+        color: var(--dark-dark, #282828);
+        font-weight: 700;
+      }
+    }
+  }
+}

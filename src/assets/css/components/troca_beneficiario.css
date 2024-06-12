@@ -1,0 +1,33 @@
+.troca-beneficiario-card {
+  max-width: 342px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid var(--texto-menor-importncia, #c4cbcf);
+  background: #fff;
+  padding: 9px 16px;
+}
+
+.troca-beneficiario-card-first-line {
+  color: var(--ct-as-mdio, #00995d);
+  font-family: Unimed Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.troca-beneficiario-card-second-line {
+  color: #969696;
+  font-family: Unimed Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.troca-beneficiario-btn {
+  cursor: pointer;
+}

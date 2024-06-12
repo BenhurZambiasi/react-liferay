@@ -1,0 +1,24 @@
+.irpf-pdf-header {
+  width: 100%;
+  display: grid;
+}
+
+.irpf-pdf-header > .irpf-pdf-header-title {
+  color: var(--texto-ttulos, #333);
+  text-align: center;
+  font-family: Unimed Sans;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.irpf-pdf-header > .irpf-pdf-header-text {
+  color: var(--texto-textos-longos, #5b5c65);
+  text-align: center;
+  font-family: Unimed Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

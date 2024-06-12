@@ -1,0 +1,62 @@
+.troca-modal-titulo {
+  color: #5f6069;
+  font-family: Unimed Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.troca-modal-infos {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 25px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.troca-modal-info-nome {
+  color: var(--ct-as-mdio, #00995d);
+  font-family: Unimed Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.troca-modal-info-unidade {
+  color: #969696;
+  font-family: Unimed Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.troca-modal-info-cartao {
+  color: #969696;
+  font-family: Unimed Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.troca-modal-mark {
+  background: #909198;
+  width: 11.731px;
+}
+
+.troca-modal-mark.troca-modal-active {
+  background: #00995d;
+}
+
+.troca-modal-card {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  background: #fff;
+  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+  min-height: 72px;
+  margin-bottom: 19px;
+}

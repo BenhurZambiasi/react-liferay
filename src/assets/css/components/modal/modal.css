@@ -1,0 +1,66 @@
+.servicos-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1025;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.servicos-modal-show {
+  display: block;
+}
+
+.servicos-modal-dialog {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 20px;
+}
+.servicos-modal-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 681px;
+  height: fit-content;
+  min-height: 18.75rem;
+  background: #fff;
+  -o-border-radius: 0.625rem;
+  -webkit-border-radius: 0.625rem;
+  -moz-border-radius: 0.625rem;
+  -ms-border-radius: 0.625rem;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  -webkit-box-shadow: 2px 0px 22px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 0px 22px -7px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 0px 20px -7px rgba(0, 0, 0, 0.75);
+  padding: 24px;
+  margin: auto;
+}
+
+.servicos-modal-close-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  right: 0.5rem;
+  top: 0.5rem;
+  cursor: pointer;
+  color: #ccc;
+  font-family: Unimed Sans;
+  font-size: 1.5rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.servicos-modal-close-icon:hover {
+  color: #5f6069;
+}

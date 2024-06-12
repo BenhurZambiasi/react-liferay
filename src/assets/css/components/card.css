@@ -1,0 +1,33 @@
+.irpf-pdf-card {
+  width: 342px;
+  height: auto;
+  margin: 0 auto;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid var(--texto-menor-importncia, #c4cbcf);
+  background: #fff;
+  padding: 9px 16px;
+}
+
+.irpf-pdf-card-text-row1 {
+  color: var(--ct-as-mdio, #00995d);
+  font-family: Unimed Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.irpf-pdf-card-text-row2 {
+  color: #969696;
+  text-align: right;
+  font-family: Unimed Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.irpf-pdf-card > div {
+  display: flex;
+  justify-content: space-between;
+}

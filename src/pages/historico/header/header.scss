@@ -1,0 +1,165 @@
+.container-header {
+  display: flex;
+  max-width: 832px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+
+
+  .container-info {
+    display: flex;
+    padding: 16px 24px;
+    width: 100%;
+    flex-direction: column;
+    border-radius: 8px 8px 0px 0px;
+    border: 1px solid var(--light-light-d-1, #E2E4EA);
+    background: var(--light-white, #FFF);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.12);
+
+    .title-info {
+      color: var(--secondary-secondary, #4D4D4D);
+      font-family: "Unimed Sans";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 21px */
+    }
+
+    .info-nome {
+      display: flex;
+      gap: 24px;
+
+      .nome {
+        color: var(--primary-primary-d-1, #00804D);
+        font-family: "Unimed Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        max-width: fit-content;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .cartao {
+        display: flex;
+        gap: 8px;
+        span {
+          color: #333;
+          font-family: "Unimed Sans";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px; /* 150% */
+        }
+      }
+    }
+     @media (max-width:574.98px) {
+      align-items: center;
+      .info-nome{
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+        .nome{
+          font-size: 16px;
+        }
+      }
+    }
+
+    @media (max-width:360.98px) {
+      padding: 16px;
+      align-self: stretch;
+      .info-nome{
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+        .nome{
+          font-size: 16px;
+          max-width: 250px;
+        }
+      }
+    }
+
+     @media (max-width:280.98px) {
+      .info-nome{
+        .nome{
+          max-width: 210px;
+        }
+      }
+    }
+
+   
+  }
+
+  .container-filtro {
+    display: flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+    border-radius: 0px 0px 8px 8px;
+    border-right: 1px solid var(--light-light-d-1, #E2E4EA);
+    border-bottom: 1px solid var(--light-light-d-1, #E2E4EA);
+    border-left: 1px solid var(--light-light-d-1, #E2E4EA);
+    background: var(--light-light-l-1, #F7F8F9);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.12);
+
+    .title {
+      color: var(--primary-primary-d-1, #00804D);
+      font-family: "Unimed Sans";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    
+      .btn-pdf {
+        display: flex;
+        padding: 8px 16px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        background: var(--primary-primary, #00995C);
+      }
+
+
+    @media (max-width:768.98px) {
+      display: flex;
+      padding: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width:508.98px) {
+       .actions{
+        width: 100%;
+      }
+        .btn-pdf{
+          min-width: 100%;
+          width: 100%;
+        }
+    }
+
+    @media (max-width:360.98px) {
+      flex-direction: column;
+      .actions{
+        width: 100%;
+        flex-wrap: wrap;
+      }
+     
+    }
+
+    @media (max-width:280.98px) {
+      .actions{
+        flex-direction: column;
+      }
+    }
+
+  }
+}

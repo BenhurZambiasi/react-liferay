@@ -1,0 +1,61 @@
+.un-container-select {
+  border-radius: 8px;
+  border: 1px solid #dedede;
+  font-family: "Unimed Sans";
+  font-style: normal;
+  line-height: normal;
+  background: #fff;
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+}
+
+.un-select-filtro-options {
+  left: 0;
+  margin-top: 10px;
+  min-width: 180px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0px 4px 8px 0px #2728331f;
+  border-radius: 8px;
+  border: 1px solid #e2e4ea;
+  background: #fff;
+  z-index: 10;
+}
+
+.un-select-filtro-header:has(
+    .un-controle-select-filtro:checked
+  )
+~ .un-select-filtro-options {
+  display: flex;
+}
+
+.un-select-filtro-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  user-select: none;
+  margin-bottom: 0;
+  color: #404040;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 16px;
+}
+
+@media (max-width: 426px) {
+  .un-select-filtro-options {
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .un-container-select {
+    width: 100% !important;
+    max-width: 100%;
+  }
+  .un-select-arrow {
+    position: absolute !important;
+    right: 0;
+  }
+}
