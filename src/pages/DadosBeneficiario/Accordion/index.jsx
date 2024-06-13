@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import "./accordion.scss";
 
-const Accordion = ({ children, onEdit }) => {
+const Accordion = ({ children, onEdit, title }) => {
   return (
     <div className="d-flex flex-column gap-3">
       <details>
         <summary>
-          <span>title</span>
+          <span>{title}</span>
           <div className="d-flex align-items-center gap-6">
             {onEdit && (
               <button

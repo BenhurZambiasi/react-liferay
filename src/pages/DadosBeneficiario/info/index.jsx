@@ -5,7 +5,7 @@ export const Info = () => {
   return (
     <div>
       <div className="container d-flex flex-column gap-3">
-        <Accordion>
+        <Accordion onEdit={() => {}} title="asdsad">
           <div>eira</div>
           <div>eira</div>
           <div>eira</div>
