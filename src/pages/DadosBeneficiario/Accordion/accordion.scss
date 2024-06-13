@@ -1,6 +1,6 @@
 details {
   display: flex;
-  padding: 24px;
+
   flex-direction: column;
   align-items: center;
   gap: 24px;
@@ -16,6 +16,8 @@ details {
     display: flex;
     font-family: "Unimed Sans";
     gap: 8px;
+    height: 100%;
+    padding: 24px;
 
     .title-accordion {
       color: var(--dark-dark, #282828);

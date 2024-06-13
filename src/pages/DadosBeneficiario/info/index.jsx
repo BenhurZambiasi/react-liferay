@@ -16,7 +16,7 @@ export const Info = () => {
     <div>
       <div className="container d-flex flex-column gap-3">
         <Accordion onEdit={handleSelectEdit} title="Dados do cadastro">
-          <div className="container-hitorico"></div>
+          <div className="container-hitorico">asdsad</div>
         </Accordion>
         <Accordion onEdit={handleSelectEdit} title="Endereço residencial">
           <div className="container-hitorico"></div>

@@ -3,38 +3,36 @@ import "./accordion.scss";
 
 const Accordion = ({ children, onEdit, title }) => {
   return (
-    <div className="d-flex flex-column gap-3">
-      <details>
-        <summary>
-          <span className="title-accordion">{title}</span>
-          <div className="d-flex align-items-center gap-6">
-            {onEdit && (
-              <button
-                className="d-flex align-items-center gap-2 btn-edit"
-                onClick={onEdit}>
-                <span className="material-symbols-outlined arrow-ac">edit</span>
-                Alterar dados
-              </button>
-            )}
-
-            <span className="material-symbols-outlined arrow-ac">
-              expand_more
-            </span>
-          </div>
-        </summary>
-        <div>
+    <details>
+      <summary>
+        <span className="title-accordion">{title}</span>
+        <div className="d-flex align-items-center gap-6">
           {onEdit && (
             <button
-              className="d-flex align-items-center gap-2 btn-edit-mobile"
+              className="d-flex align-items-center gap-2 btn-edit"
               onClick={onEdit}>
               <span className="material-symbols-outlined arrow-ac">edit</span>
               Alterar dados
             </button>
           )}
-          {children}
+
+          <span className="material-symbols-outlined arrow-ac">
+            expand_more
+          </span>
         </div>
-      </details>
-    </div>
+      </summary>
+      <div>
+        {onEdit && (
+          <button
+            className="d-flex align-items-center gap-2 btn-edit-mobile"
+            onClick={onEdit}>
+            <span className="material-symbols-outlined arrow-ac">edit</span>
+            Alterar dados
+          </button>
+        )}
+        {children}
+      </div>
+    </details>
   );
 };
 
