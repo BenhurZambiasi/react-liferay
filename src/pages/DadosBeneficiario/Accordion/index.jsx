@@ -6,7 +6,7 @@ const Accordion = ({ children, onEdit, title }) => {
     <div className="d-flex flex-column gap-3">
       <details>
         <summary>
-          <span>{title}</span>
+          <span className="title-accordion">{title}</span>
           <div className="d-flex align-items-center gap-6">
             {onEdit && (
               <button
@@ -22,7 +22,17 @@ const Accordion = ({ children, onEdit, title }) => {
             </span>
           </div>
         </summary>
-        <div>{children}</div>
+        <div>
+          {onEdit && (
+            <button
+              className="d-flex align-items-center gap-2 btn-edit-mobile"
+              onClick={onEdit}>
+              <span className="material-symbols-outlined arrow-ac">edit</span>
+              Alterar dados
+            </button>
+          )}
+          {children}
+        </div>
       </details>
     </div>
   );

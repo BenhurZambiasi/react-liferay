@@ -17,6 +17,15 @@ details {
     font-family: "Unimed Sans";
     gap: 8px;
 
+    .title-accordion {
+      color: var(--dark-dark, #282828);
+      font-family: "Unimed Slab";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 125%;
+    }
+
     .btn-edit {
       display: flex;
       padding: 5.5px 12px;
@@ -27,6 +36,49 @@ details {
       background: var(--primary-primary, #00995c);
       color: #ffffff;
       border: 0;
+      white-space: nowrap;
+      span {
+        color: var(--light-white, #fff);
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+      }
+    }
+
+    @media (max-width: 429.98px) {
+      .title-accordion {
+        font-size: 18px;
+      }
+      .btn-edit {
+        display: none !important;
+      }
+    }
+  }
+
+  .btn-edit-mobile {
+    display: none !important;
+    padding: 5.5px 12px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+    background: var(--primary-primary, #00995c);
+    color: #ffffff;
+    border: 0;
+    span {
+      color: var(--light-white, #fff);
+      text-align: center;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+    }
+    @media (max-width: 428.98px) {
+      margin-top: 21px !important;
+      display: flex !important;
     }
   }
 

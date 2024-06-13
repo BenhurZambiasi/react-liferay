@@ -5,7 +5,7 @@ import { Info } from "./info";
 import "./dados.scss";
 
 export const DadosBeneficiario = () => {
-  const [tabActive, setTabActive] = useState(2);
+  const [tabActive, setTabActive] = useState(0);
   const tabs = [
     {
       label: "Info",
