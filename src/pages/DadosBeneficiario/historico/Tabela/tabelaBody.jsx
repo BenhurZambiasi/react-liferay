@@ -12,7 +12,7 @@ const TabelaBody = ({ title }) => {
                         <td>02/04/2025</td>
                         <td>Perda do cartão</td>
                         <td>
-                            <div className="historico-do-cadastro-container__tabela__btn-detalhes">
+                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3">
                                 Outros detalhes <span className="material-symbols-outlined arrow-ac">
                                     expand_more
                                 </span>
@@ -26,7 +26,7 @@ const TabelaBody = ({ title }) => {
                         <td>25/07/2024</td>
                         <td>Troca de plano</td>
                         <td>
-                            <div className="historico-do-cadastro-container__tabela__btn-detalhes">
+                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3">
                                 Outros detalhes <span className="material-symbols-outlined arrow-ac">
                                     expand_more
                                 </span>
@@ -48,7 +48,7 @@ const TabelaBody = ({ title }) => {
                         <td>20/01/2023</td>
                         <td>Renovação do cartão</td>
                         <td>
-                            <div className="historico-do-cadastro-container__tabela__btn-detalhes">
+                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3">
                                 Outros detalhes <span className="material-symbols-outlined arrow-ac">
                                     expand_more
                                 </span>
@@ -62,7 +62,7 @@ const TabelaBody = ({ title }) => {
                         <td>20/01/2022</td>
                         <td>Inclusão beneficiário</td>
                         <td>
-                            <div className="historico-do-cadastro-container__tabela__btn-detalhes">
+                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3">
                                 Outros detalhes <span className="material-symbols-outlined arrow-ac">
                                     expand_more
                                 </span>
