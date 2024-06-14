@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Accordion from "../Accordion";
 import { Drawer } from "./Drawer";
+import { DadosCadastro } from "./DadosCadastro";
+import { EnderecoResidencial } from "./EnderecoResidencial";
+import { EnderecoCorrespondencia } from "./EnderecoCorrespondencia";
+import { EnderecoCobranca } from "./EnderecoCobranca";
+import { DadosComplementares } from "./DadosComplementares";
 
 export const Info = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,21 +21,21 @@ export const Info = () => {
     <div>
       <div className="container d-flex flex-column gap-3">
         <Accordion onEdit={handleSelectEdit} title="Dados do cadastro">
-          <div className="container-hitorico">asdsad</div>
+          <DadosCadastro />
         </Accordion>
         <Accordion onEdit={handleSelectEdit} title="Endereço residencial">
-          <div className="container-hitorico"></div>
+          <EnderecoResidencial />
         </Accordion>
         <Accordion
           onEdit={handleSelectEdit}
           title="Endereço de correspondência">
-          <div className="container-hitorico"></div>
+          <EnderecoCorrespondencia />
         </Accordion>
         <Accordion onEdit={handleSelectEdit} title="Endereço de cobrança">
-          <div className="container-hitorico"></div>
+          <EnderecoCobranca />
         </Accordion>
         <Accordion onEdit={handleSelectEdit} title="Dados complementares">
-          <div className="container-hitorico"></div>
+          <DadosComplementares />
         </Accordion>
       </div>
 

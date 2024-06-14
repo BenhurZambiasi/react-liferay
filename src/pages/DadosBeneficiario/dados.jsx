@@ -9,11 +9,11 @@ export const DadosBeneficiario = () => {
   const tabs = [
     {
       label: "Info",
-      Component:  () => <Info/>,
+      Component: () => <Info />,
     },
     {
       label: "Historico",
-      Component: () => <Historico/>,
+      Component: () => <Historico />,
     },
     {
       label: "Beneficiarios",
