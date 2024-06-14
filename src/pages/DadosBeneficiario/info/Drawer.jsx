@@ -29,7 +29,7 @@ export const Drawer = ({
           className="material-symbols-outlined d-flex justify-content-end">
           close
         </span>
-        <div className="content-drawer">{children}</div>
+        <div className="content-drawer">{isOpen && children}</div>
       </div>
     </div>
   );

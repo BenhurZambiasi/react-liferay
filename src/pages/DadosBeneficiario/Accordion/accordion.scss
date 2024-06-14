@@ -39,6 +39,10 @@ details {
       color: #ffffff;
       border: 0;
       white-space: nowrap;
+
+      &:hover {
+        opacity: 0.8;
+      }
       span {
         color: var(--light-white, #fff);
         text-align: center;
@@ -71,6 +75,10 @@ details {
       background: var(--primary-primary, #00995c);
       color: #ffffff;
       border: 0;
+
+      &:hover {
+        opacity: 0.6;
+      }
       span {
         color: var(--light-white, #fff);
         text-align: center;
