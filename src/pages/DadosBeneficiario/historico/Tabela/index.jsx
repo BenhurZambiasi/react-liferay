@@ -11,7 +11,7 @@ const Tabela = ({ title }) => {
     const columnTitles = columns[title];
 
     return (
-        <table className="historico-do-cadastro-container__tabela">
+        <table className="historico-do-cadastro-container-tabela">
             <thead>
                 <tr>
                     {columnTitles.map((columnTitle) => (

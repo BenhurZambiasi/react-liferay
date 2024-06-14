@@ -1,5 +1,5 @@
 .historico-do-cadastro-container {
-    &__tabela {
+    .historico-do-cadastro-container-tabela {
         width: 100%;
         font-family: Unimed Sans;
 
@@ -76,4 +76,58 @@
         }
     }
 
+    &__card {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        &__tabela {
+            display: none;
+        }
+
+        &__card {
+            display: flex;
+            flex-direction: column;
+            padding: 0px 16px;
+            border-bottom: 1px solid #E2E4EA;
+
+            &__body {
+                display: flex;
+                flex-direction: column;
+                padding: 16px 8px;
+                border-bottom: 1px solid #E2E4EA;
+
+                &__verde {
+                    background: #EDF9F0;
+                    border-bottom: 1px solid #E2E4EA;
+                    padding: 16px 8px;
+                    .historico-do-cadastro-container__tabela__btn-detalhes {
+                        color: #00804D;
+                        border: 1px solid #00804D;
+                    }
+
+                }
+
+                &__container {
+                    display: flex;
+                    flex-direction: column;
+                    font-family: Unimed Sans;
+
+                    &__categoria {
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 21px;
+                        color: #404040;
+                    }
+
+                    &__data {
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 21px;
+                        color: #151515;
+                    }
+                }
+            }
+        }
+    }
 }
