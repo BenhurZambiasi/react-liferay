@@ -1,5 +1,5 @@
 .historico-do-cadastro-container {
-    .historico-do-cadastro-container-tabela {
+    &__tabela {
         width: 100%;
         font-family: Unimed Sans;
 
@@ -101,6 +101,7 @@
                     background: #EDF9F0;
                     border-bottom: 1px solid #E2E4EA;
                     padding: 16px 8px;
+
                     .historico-do-cadastro-container__tabela__btn-detalhes {
                         color: #00804D;
                         border: 1px solid #00804D;
