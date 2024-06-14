@@ -1,5 +1,18 @@
 /* eslint-disable react/prop-types */
 
+const toggleDetails = (event) => {
+    const bodyCinza = event.currentTarget.parentElement.parentElement.nextElementSibling;
+    const isHidden = bodyCinza.classList.contains('d-none');
+
+    if (isHidden) {
+        bodyCinza.classList.remove('d-none');
+        event.currentTarget.querySelector('.arrow-ac').classList.add('rotated');
+    } else {
+        bodyCinza.classList.add('d-none');
+        event.currentTarget.querySelector('.arrow-ac').classList.remove('rotated');
+    }
+};
+
 const TabelaBody = ({ title }) => {
     return (
         <>
@@ -12,12 +25,20 @@ const TabelaBody = ({ title }) => {
                         <td>02/04/2025</td>
                         <td>Perda do cartão</td>
                         <td>
-                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3">
+                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3" onClick={toggleDetails}>
                                 Outros detalhes <span className="material-symbols-outlined arrow-ac">
                                     expand_more
                                 </span>
                             </div>
                         </td>
+                    </tr>
+                    <tr className="historico-do-cadastro-container__tabela__body-cinza d-none">
+                        <td>Motivo do bloqueio <br /> -</td>
+                        <td></td>
+                        <td>Data de bloqueio <br /> -</td>
+                        <td>Usuario <br /> A14992</td>
+                        <td>Descrição <br /> Emissão geral</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>3</td>
@@ -26,14 +47,14 @@ const TabelaBody = ({ title }) => {
                         <td>25/07/2024</td>
                         <td>Troca de plano</td>
                         <td>
-                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3">
+                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3" onClick={toggleDetails}>
                                 Outros detalhes <span className="material-symbols-outlined arrow-ac">
                                     expand_more
                                 </span>
                             </div>
                         </td>
                     </tr>
-                    <tr className="historico-do-cadastro-container__tabela__body-cinza">
+                    <tr className="historico-do-cadastro-container__tabela__body-cinza d-none">
                         <td>Motivo do bloqueio <br /> -</td>
                         <td></td>
                         <td>Data de bloqueio <br /> -</td>
@@ -48,12 +69,20 @@ const TabelaBody = ({ title }) => {
                         <td>20/01/2023</td>
                         <td>Renovação do cartão</td>
                         <td>
-                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3">
+                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3" onClick={toggleDetails}>
                                 Outros detalhes <span className="material-symbols-outlined arrow-ac">
                                     expand_more
                                 </span>
                             </div>
                         </td>
+                    </tr>
+                    <tr className="historico-do-cadastro-container__tabela__body-cinza d-none">
+                        <td>Motivo do bloqueio <br /> -</td>
+                        <td></td>
+                        <td>Data de bloqueio <br /> -</td>
+                        <td>Usuario <br /> A14992</td>
+                        <td>Descrição <br /> Emissão geral</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>1</td>
@@ -62,12 +91,20 @@ const TabelaBody = ({ title }) => {
                         <td>20/01/2022</td>
                         <td>Inclusão beneficiário</td>
                         <td>
-                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3">
+                            <div className="historico-do-cadastro-container__tabela__btn-detalhes mr-3" onClick={toggleDetails}>
                                 Outros detalhes <span className="material-symbols-outlined arrow-ac">
                                     expand_more
                                 </span>
                             </div>
                         </td>
+                    </tr>
+                    <tr className="historico-do-cadastro-container__tabela__body-cinza d-none">
+                        <td>Motivo do bloqueio <br /> -</td>
+                        <td></td>
+                        <td>Data de bloqueio <br /> -</td>
+                        <td>Usuario <br /> A14992</td>
+                        <td>Descrição <br /> Emissão geral</td>
+                        <td></td>
                     </tr>
                 </>
             )}
@@ -110,6 +147,3 @@ const TabelaBody = ({ title }) => {
 };
 
 export default TabelaBody;
-
-
-
