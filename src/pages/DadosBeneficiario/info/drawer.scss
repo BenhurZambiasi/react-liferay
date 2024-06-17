@@ -60,7 +60,7 @@
       height: calc(100% - 5.5rem);
     }
 
-    @media screen and (max-width: 768.98px) {
+    @media screen and (max-width: 1080.98px) {
       top: 120px;
       width: 100% !important;
       max-width: 100% !important;
@@ -68,11 +68,6 @@
 
       .content-drawer {
         height: 75%;
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      .content-drawer {
         padding: 2rem 2rem 0 2rem;
         margin-right: 8px;
       }
