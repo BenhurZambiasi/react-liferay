@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import "./drawer.scss";
 import { useClickOutside } from "../../../hooks/useClickOutSide";
 
@@ -16,6 +16,16 @@ export const Drawer = ({
   useClickOutside(ref, () => {
     onClose();
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      const body = document.querySelector("body");
+      body.style.overflow = "hidden";
+    } else {
+      const body = document.querySelector("body");
+      body.style.overflow = "auto";
+    }
+  }, [isOpen]);
 
   return (
     <div className="container-drawer">

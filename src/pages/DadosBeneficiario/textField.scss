@@ -1,0 +1,71 @@
+.container-textfield {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  gap: 8px;
+
+  &[data-disabled="true"] {
+    label {
+      color: #c4c4c4;
+
+      font-family: "Unimed Sans";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+    }
+    input {
+      display: flex;
+      padding: 8px 16px;
+      align-items: center;
+      gap: 12px;
+      flex: 1 0 0;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 1px solid var(--secondary-secondary-l-3, #dedede);
+      background: var(--light-light-l-1, #f7f8f9);
+      cursor: default;
+    }
+  }
+
+  label {
+    max-width: max-content;
+    margin: 0;
+    color: #4d4d4d;
+    font-family: "Unimed Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    display: flex;
+    gap: 2px;
+    span {
+      color: #da1414;
+    }
+  }
+  input {
+    outline: none;
+    display: flex;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 12px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-secondary-l-2, #c4c4c4);
+    background: var(--light-white, #fff);
+  }
+  @media (max-width: 493.98px) {
+    &[data-hidden="true"] {
+      display: none;
+    }
+  }
+
+  @media (max-width: 320px) {
+    min-width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+}

@@ -23,20 +23,31 @@ export const DadosBeneficiario = () => {
 
   const switchTab = (ind) => {
     setTabActive(ind);
+
+    const tab = document.querySelector(`#btn-tab-${ind}`);
+    tab.scrollIntoView({
+      block: "nearest",
+      inline: "center",
+      behavior: "smooth",
+    });
   };
 
   const { Component } = tabs[tabActive];
+
   return (
     <div>
-      <div className="container container-tab">
-        {tabs.map(({ label }, index) => (
-          <div
-            className={`btn-tab ${index == tabActive && "active"}`}
-            key={label}
-            onClick={() => switchTab(index)}>
-            <span>{label}</span>
-          </div>
-        ))}
+      <div className="container">
+        <div className="container-tab-dados">
+          {tabs.map(({ label }, index) => (
+            <div
+              className={`btn-tab ${index == tabActive && "active"}`}
+              id={`btn-tab-${index}`}
+              key={label}
+              onClick={() => switchTab(index)}>
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
       </div>
       <Component />
     </div>

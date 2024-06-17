@@ -1,160 +1,152 @@
 .historico-do-cadastro-container {
+  &__tabela {
+    width: 100%;
+    font-family: Unimed Sans;
+
+    th {
+      min-width: 180px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 20px;
+      text-align: left;
+      color: #404040;
+      padding-left: 12px;
+    }
+
+    td {
+      height: 56px;
+      border-bottom: 1px solid #e2e4ea;
+      border-top: 1px solid #e2e4ea;
+      padding-left: 12px;
+    }
+
+    thead {
+      tr:hover {
+        background: white;
+      }
+    }
+
+    &__body-cinza {
+      background: #f7f8f9;
+      line-height: 38px;
+    }
+
+    tr:hover {
+      background: #edf9f0;
+      cursor: default;
+
+      .historico-do-cadastro-container__tabela__btn-detalhes {
+        color: #00804d;
+        border: 1px solid #00804d;
+      }
+    }
+
+    &__body-cinza:hover {
+      background: #f7f8f9 !important;
+    }
+
+    &__btn-detalhes {
+      height: 32px;
+      padding: 6px 8px 6px 12px;
+      gap: 8px;
+      border-radius: 4px;
+      border: 1px solid #c4c4c4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      font-family: Unimed Sans;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      text-align: left;
+      color: #4d4d4d;
+      min-width: 161px;
+    }
+
+    &__btn-detalhes:hover {
+      color: green;
+    }
+  }
+
+  &__card {
+    display: none;
+  }
+
+  .arrow-ac {
+    transition: transform 0.3s ease;
+  }
+
+  .arrow-ac.rotated {
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 768px) {
     &__tabela {
-        width: 100%;
-        font-family: Unimed Sans;
-
-        th {
-            min-width: 180px;
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 20px;
-            text-align: left;
-            color: #404040;
-            padding-left: 12px;
-        }
-
-        td {
-            height: 56px;
-            border-bottom: 1px solid #E2E4EA;
-            border-top: 1px solid #E2E4EA;
-            padding-left: 12px;
-
-
-        }
-
-        thead {
-            tr:hover {
-                background: white;
-            }
-        }
-
-        &__body-cinza {
-            background: #F7F8F9;
-            line-height: 38px;
-
-
-        }
-
-        tr:hover {
-            background: #EDF9F0;
-            cursor: pointer;
-
-
-            .historico-do-cadastro-container__tabela__btn-detalhes {
-                color: #00804D;
-                border: 1px solid #00804D;
-            }
-
-        }
-
-        &__body-cinza:hover {
-            background: #F7F8F9 !important;
-        }
-
-
-        &__btn-detalhes {
-            height: 32px;
-            padding: 6px 8px 6px 12px;
-            gap: 8px;
-            border-radius: 4px;
-            border: 1px solid #C4C4C4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-family: Unimed Sans;
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 20px;
-            text-align: left;
-            color: #4D4D4D;
-            min-width: 161px;
-        }
-
-        &__btn-detalhes:hover {
-            color: green;
-        }
+      display: none;
     }
 
     &__card {
-        display: none;
-    }
+      display: flex;
+      flex-direction: column;
+      padding: 0px 16px;
+      border-bottom: 1px solid #e2e4ea;
 
-    .arrow-ac {
-        transition: transform 0.3s ease;
-    }
+      &__body {
+        display: flex;
+        flex-direction: column;
+        padding-top: 16px;
+        border-bottom: 1px solid #e2e4ea;
 
-    .arrow-ac.rotated {
-        transform: rotate(180deg);
-    }
-
-    @media (max-width: 768px) {
-        &__tabela {
-            display: none;
+        .historico-do-cadastro-container__tabela__btn-detalhes {
+          cursor: pointer;
         }
 
-        &__card {
+        &__verde {
+          background: #edf9f0;
+          border-bottom: 1px solid #e2e4ea;
+          padding-top: 16px;
+
+          .historico-do-cadastro-container__tabela__btn-detalhes {
+            color: #00804d;
+            border: 1px solid #00804d;
+            cursor: pointer;
+          }
+        }
+
+        &__container {
+          display: flex;
+          flex-direction: column;
+          font-family: Unimed Sans;
+          padding-bottom: 12px;
+
+          &__categoria {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            color: #404040;
+            padding: 0px 16px 0px 16px;
+          }
+
+          &__data {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            color: #151515;
+            padding: 0px 16px 0px 16px;
+          }
+
+          &__subdata {
+            border-top: 1px solid #e2e4ea;
+            border-bottom: 1px solid #e2e4ea;
+            background: #f7f8f9;
             display: flex;
             flex-direction: column;
-            padding: 0px 16px;
-            border-bottom: 1px solid #E2E4EA;
-
-            &__body {
-                display: flex;
-                flex-direction: column;
-                padding-top: 16px;
-                border-bottom: 1px solid #E2E4EA;
-
-                .historico-do-cadastro-container__tabela__btn-detalhes {
-                    cursor: pointer;
-                }
-
-                &__verde {
-                    background: #EDF9F0;
-                    border-bottom: 1px solid #E2E4EA;
-                    padding-top: 16px;
-
-                    .historico-do-cadastro-container__tabela__btn-detalhes {
-                        color: #00804D;
-                        border: 1px solid #00804D;
-                        cursor: pointer;
-
-                    }
-
-                }
-
-                &__container {
-                    display: flex;
-                    flex-direction: column;
-                    font-family: Unimed Sans;
-                    padding-bottom: 12px;
-
-                    &__categoria {
-                        font-size: 14px;
-                        font-weight: 400;
-                        line-height: 21px;
-                        color: #404040;
-                        padding: 0px 16px 0px 16px;
-                    }
-
-                    &__data {
-                        font-size: 14px;
-                        font-weight: 600;
-                        line-height: 21px;
-                        color: #151515;
-                        padding: 0px 16px 0px 16px;
-                    }
-
-                    &__subdata {
-                        border-top: 1px solid #E2E4EA;
-                        border-bottom: 1px solid #E2E4EA;
-                        background: #F7F8F9;
-                        display: flex;
-                        flex-direction: column;
-                        padding-top: 16px;
-                    }
-                }
-            }
+            padding-top: 16px;
+          }
         }
+      }
     }
+  }
 }

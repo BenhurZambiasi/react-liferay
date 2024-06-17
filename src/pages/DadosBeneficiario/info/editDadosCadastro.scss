@@ -1,0 +1,96 @@
+.container-edit-dados {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  height: 100%;
+
+  span {
+    line-height: normal;
+    font-style: normal;
+  }
+  .header-edit {
+    display: flex;
+    flex-direction: column;
+    .title {
+      color: #282828;
+      font-family: "Unimed Slab";
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .info {
+      display: flex;
+      justify-content: flex-end;
+      color: var(--secondary-secondary-l-1, #808080);
+      font-family: "Unimed Sans";
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    @media (max-width: 412.98px) {
+      gap: 32px;
+      .title {
+        color: #282828;
+        font-size: 20px;
+      }
+      .info {
+        justify-content: start;
+      }
+    }
+  }
+  .content-form {
+    overflow: auto;
+    display: flex;
+    height: 100%;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 62.4375rem;
+      background: var(--secondary-secondary-l-1, #808080);
+    }
+    .actions {
+      display: flex;
+      flex: 1;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: end;
+
+      button {
+        border: none;
+        display: flex;
+        padding: 16px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex: 1 0 0;
+        border-radius: 4px;
+        color: #fff;
+        font-family: "Unimed Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16px; /* 100% */
+        text-transform: uppercase;
+      }
+
+      .btn-salvar {
+        background: var(--primary-primary, #00995c);
+      }
+
+      .btn-cancelar {
+        border: 1px solid var(--secondary-secondary-l-2, #c4c4c4);
+        background: var(--light-white, #fff);
+        color: var(--secondary-secondary, #4d4d4d);
+      }
+      @media (max-width: 493.98px) {
+        flex-direction: column;
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

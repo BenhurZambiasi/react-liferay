@@ -83,7 +83,7 @@ export const Info = () => {
       </div>
 
       <div>
-        <Drawer isOpen={isOpen} onClose={handleCloseEdit}>
+        <Drawer isOpen={isOpen} onClose={handleCloseEdit} maxWidth="720px">
           {renderContentDrawer()}
         </Drawer>
       </div>
