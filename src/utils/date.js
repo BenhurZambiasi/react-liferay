@@ -9,4 +9,4 @@ export const formatDate = ({ format, date }) => {
   return dayjs(date).utc(false).format(format);
 };
 
-export {dayjs}
+export { dayjs };

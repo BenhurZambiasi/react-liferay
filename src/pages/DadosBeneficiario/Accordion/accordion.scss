@@ -19,6 +19,14 @@ details {
     height: 100%;
     padding: 24px;
 
+    .arrow-ac {
+      transition: transform 0.3s ease;
+    }
+
+    .arrow-ac.rotated {
+      transform: rotate(180deg);
+    }
+
     .title-accordion {
       color: var(--dark-dark, #282828);
       font-family: "Unimed Slab";

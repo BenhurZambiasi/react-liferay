@@ -93,6 +93,10 @@
       padding: 0px 16px;
       border-bottom: 1px solid #e2e4ea;
 
+      &:last-child {
+        padding-bottom: 24px;
+      }
+
       &__body {
         display: flex;
         flex-direction: column;

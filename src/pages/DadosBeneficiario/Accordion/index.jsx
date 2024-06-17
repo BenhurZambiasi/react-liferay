@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./accordion.scss";
 
-const Accordion = ({ children, onEdit, title }) => {
+export const Accordion = ({ children, onEdit, title }) => {
   return (
     <details>
       <summary>
@@ -11,7 +11,7 @@ const Accordion = ({ children, onEdit, title }) => {
             <button
               className="d-flex align-items-center gap-2 btn-edit"
               onClick={onEdit}>
-              <span className="material-symbols-outlined arrow-ac">edit</span>
+              <span className="material-symbols-outlined">edit</span>
               Alterar dados
             </button>
           )}
@@ -27,7 +27,7 @@ const Accordion = ({ children, onEdit, title }) => {
             <button
               className="d-flex align-items-center gap-2 btn-edit-mobile"
               onClick={onEdit}>
-              <span className="material-symbols-outlined arrow-ac">edit</span>
+              <span className="material-symbols-outlined">edit</span>
               Alterar dados
             </button>
           </div>
@@ -37,5 +37,3 @@ const Accordion = ({ children, onEdit, title }) => {
     </details>
   );
 };
-
-export default Accordion;

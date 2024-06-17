@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import TabelaBody from "./TabelaBody";
 
-const Tabela = ({ columns, data }) => {
+const Tabela = ({ columns, data, expanded, onExpand }) => {
   return (
     <table className="historico-do-cadastro-container__tabela">
       <thead>
@@ -12,7 +12,12 @@ const Tabela = ({ columns, data }) => {
         </tr>
       </thead>
       <tbody>
-        <TabelaBody columns={columns} data={data} />
+        <TabelaBody
+          columns={columns}
+          data={data}
+          expanded={expanded}
+          onExpand={onExpand}
+        />
       </tbody>
     </table>
   );

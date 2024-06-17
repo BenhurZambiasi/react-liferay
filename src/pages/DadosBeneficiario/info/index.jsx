@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Accordion from "../Accordion";
+import { Accordion } from "../Accordion";
 import { Drawer } from "./Drawer";
 import { DadosCadastro } from "./DadosCadastro";
 import { EnderecoResidencial } from "./EnderecoResidencial";

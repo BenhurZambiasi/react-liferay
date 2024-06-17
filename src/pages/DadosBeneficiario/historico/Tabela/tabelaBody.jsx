@@ -1,20 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Fragment } from "react";
-const toggleDetails = (event) => {
-  const bodyCinza =
-    event.currentTarget.parentElement.parentElement.nextElementSibling;
-  const isHidden = bodyCinza.classList.contains("d-none");
 
-  if (isHidden) {
-    bodyCinza.classList.remove("d-none");
-    event.currentTarget.querySelector(".arrow-ac").classList.add("rotated");
-  } else {
-    bodyCinza.classList.add("d-none");
-    event.currentTarget.querySelector(".arrow-ac").classList.remove("rotated");
-  }
-};
-
-const TabelaBody = ({ columns, data }) => {
+const TabelaBody = ({ columns, data, expanded, onExpand }) => {
   return data.map((row, ind) => {
     return (
       <Fragment key={ind}>
@@ -31,17 +18,20 @@ const TabelaBody = ({ columns, data }) => {
             <td>
               <div
                 className="historico-do-cadastro-container__tabela__btn-detalhes mr-3"
-                onClick={toggleDetails}>
+                onClick={() => onExpand(ind)}>
                 Outros detalhes
-                <span className="material-symbols-outlined arrow-ac">
+                <span
+                  className={`material-symbols-outlined arrow-ac ${
+                    expanded.includes(ind) && "rotated"
+                  }`}>
                   expand_more
                 </span>
               </div>
             </td>
           )}
         </tr>
-        {row.detalhes && (
-          <tr className="historico-do-cadastro-container__tabela__body-cinza d-none">
+        {row.detalhes && expanded.includes(ind) && (
+          <tr className="historico-do-cadastro-container__tabela__body-cinza">
             <td>
               Motivo do bloqueio <br />
               {row.detalhes.motivoBloqueio}

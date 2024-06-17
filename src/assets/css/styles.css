@@ -140,4 +140,11 @@
   margin: 12px 120px;
   border-left-color: #b1d34b;
   animation: spin 1s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
