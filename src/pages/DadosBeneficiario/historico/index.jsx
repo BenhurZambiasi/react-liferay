@@ -9,8 +9,8 @@ export const Historico = () => {
     {
       numVia: 4,
       cobranca: "Sim",
-      dtEmissao: "02/04/2024",
-      validade: "02/04/2025",
+      dtEmissao: "2024-04-02T14:33:36.008Z",
+      validade: "2025-04-02T14:33:36.008Z",
       motivo: "Perda do cartão",
       detalhes: {
         motivoBloqueio: "-",
@@ -22,8 +22,8 @@ export const Historico = () => {
     {
       numVia: 3,
       cobranca: "Não",
-      dtEmissao: "25/07/2023",
-      Validade: "25/07/2024",
+      dtEmissao: "2023-07-25T14:33:36.008Z",
+      validade: "2024-07-25T14:33:36.008Z",
       motivo: "Troca de plano",
       detalhes: {
         motivoBloqueio: "-",
@@ -35,8 +35,8 @@ export const Historico = () => {
     {
       numVia: 2,
       cobranca: "Não",
-      dtEmissao: "20/01/2022",
-      Validade: "20/01/2023",
+      dtEmissao: "2022-01-20T14:33:36.008Z",
+      validade: "2023-01-20T14:33:36.008Z",
       motivo: "Renovação do cartão",
       detalhes: {
         motivoBloqueio: "-",
@@ -48,8 +48,8 @@ export const Historico = () => {
     {
       numVia: 1,
       cobranca: "Não",
-      dtEmissao: "20/01/2021",
-      Validade: "20/01/2022",
+      dtEmissao: "2021-01-20T14:33:36.008Z",
+      validade: "2022-01-20T14:33:36.008Z",
       motivo: "Inclusão beneficiário",
       detalhes: {
         motivoBloqueio: "-",
@@ -62,14 +62,14 @@ export const Historico = () => {
 
   const [carteirasEmitir, setCarteirasEmitir] = useState([
     {
-      dtSolicitacao: "02/04/2024",
-      validade: "20/01/2022",
+      dtSolicitacao: "2024-04-02T14:33:36.008Z",
+      validade: "2022-01-20T14:33:36.008Z",
       usuario: "A14992",
       motivo: "Renovação do cartão",
     },
     {
-      dtSolicitacao: "25/07/2023",
-      validade: "20/01/2021",
+      dtSolicitacao: "2023-07-25T14:33:36.008Z",
+      validade: "2021-01-20T14:33:36.008Z",
       usuario: "A01890",
       motivo: "Inclusão beneficiário",
     },
@@ -78,16 +78,16 @@ export const Historico = () => {
   const [trocaPlano, setTrocaPlano] = useState([
     {
       plano: "Unimed Básico Corp Coletivo Empresarial II",
-      dtHistorico: "20/01/2022",
-      dtInicio: "20/01/2022",
-      dtFim: "20/01/2023",
+      dtHistorico: "2022-01-20T14:33:36.008Z",
+      dtInicio: "2022-01-20T14:33:36.008Z",
+      dtFim: "2023-01-20T14:33:36.008Z",
       usuario: "A14992",
     },
     {
       plano: "Unimed Básico Corp Coletivo Empresarial I",
-      dtHistorico: "20/01/2021",
-      dtInicio: "20/01/2021",
-      dtFim: "20/01/2022",
+      dtHistorico: "2021-01-20T14:33:36.008Z",
+      dtInicio: "2021-01-20T14:33:36.008Z",
+      dtFim: "2022-01-20T14:33:36.008Z",
       usuario: "A01890",
     },
   ]);
