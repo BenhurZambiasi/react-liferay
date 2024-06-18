@@ -29,3 +29,13 @@ export const searchServico = async (search) => {
     return error.response;
   }
 };
+
+export const fetchAddress = async (cep) => {
+  try {
+    const response = await axios.get(`https://brasilapi.com.br/api/cep/v1/${cep}`);
+    const { street, neighborhood, city, state } = response.data;
+    return { street, neighborhood, city, state };
+  } catch (error) {
+    console.error("Error fetching address:", error);
+  }
+};
