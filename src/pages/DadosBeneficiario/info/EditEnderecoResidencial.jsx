@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { fetchAddress } from "../../../services/api";
 import { TextField } from "../TextField";
 import { ContainerEdit } from "./ContainerEdit";
+import { Mask } from "../../../utils/mask";
 
 export const EditEnderecoResidencial = () => {
   const [formData, setFormData] = useState({
@@ -19,22 +20,31 @@ export const EditEnderecoResidencial = () => {
     comprovante: "",
   });
 
-  const handleChange = async (e) => {
+  useEffect(() => {
+    const fetchAndSetAddress = async () => {
+      const formattedCep = formData.cep.replace("-", ""); // Remove o hífen, se houver
+      if (formattedCep.length === 8) {
+        const addressData = await fetchAddress(formattedCep);
+        if (addressData) {
+          setFormData((prevData) => ({
+            ...prevData,
+            endereco: addressData.street,
+            bairro: addressData.neighborhood,
+            municipio: addressData.city,
+            uf: addressData.state,
+          }));
+        }
+      }
+    };
+
+    const debounceFetch = setTimeout(fetchAndSetAddress, 300);
+
+    return () => clearTimeout(debounceFetch);
+  }, [formData.cep]);
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    if (name === "cep" && value.length === 8) {
-      const addressData = await fetchAddress(value);
-      if (addressData) {
-        setFormData((prevData) => ({
-          ...prevData,
-          endereco: addressData.street,
-          bairro: addressData.neighborhood,
-          municipio: addressData.city,
-          uf: addressData.state,
-        }));
-      }
-    }
   };
 
   return (
@@ -43,14 +53,22 @@ export const EditEnderecoResidencial = () => {
         <input type="checkbox" id="entregaCorrespondencias" name="entregaCorrespondencias" />
         <label htmlFor="entregaCorrespondencias" className="ml-2 mb-0">Desejo que as demais correspondências sejam entregues neste endereço</label>
       </div>
-      <div>
+      <div className="d-flex gap-5 endereco-residencial-edit-container-cep">
         <TextField
           label={"Cep"}
           name={"cep"}
           onChange={handleChange}
-          value={formData.cep}
+          value={Mask("000000-00", formData.cep)}
           required
         />
+        <div className="d-flex align-items-center endereco-residencial-edit-limpar-form" onClick={() => setFormData({ ...formData, endereco: "", bairro: "", municipio: "", uf: "", cep: "" })}>
+          <div className="d-flex align-items-center">
+            <span className="material-symbols-outlined position-static">
+              delete
+            </span>
+            <span>Limpar endereço</span>
+          </div>
+        </div>
       </div>
       <div className="d-flex gap-5 flex-wrap">
         <TextField
@@ -60,21 +78,6 @@ export const EditEnderecoResidencial = () => {
           value={formData.endereco}
           disabled
           required
-        />
-        <TextField
-          label={"Número"}
-          name={"numero"}
-          onChange={handleChange}
-          value={formData.numero}
-          required
-        />
-      </div>
-      <div className="d-flex gap-5 flex-wrap">
-        <TextField
-          label={"Complemento"}
-          name={"complemento"}
-          onChange={handleChange}
-          value={formData.complemento}
         />
         <TextField
           label={"Bairro"}
@@ -105,17 +108,32 @@ export const EditEnderecoResidencial = () => {
       </div>
       <div className="d-flex gap-5 flex-wrap">
         <TextField
-          label={"Ramal"}
-          name={"ramal"}
+          label={"Número"}
+          name={"numero"}
           onChange={handleChange}
-          value={formData.ramal}
+          value={formData.numero}
+          required
         />
+        <TextField
+          label={"Complemento"}
+          name={"complemento"}
+          onChange={handleChange}
+          value={formData.complemento}
+        />
+      </div>
+      <div className="d-flex gap-5 flex-wrap">
         <TextField
           label={"Telefone"}
           name={"telefone"}
           onChange={handleChange}
           value={formData.telefone}
           required
+        />
+        <TextField
+          label={"Ramal"}
+          name={"ramal"}
+          onChange={handleChange}
+          value={formData.ramal}
         />
       </div>
       <div className="d-flex gap-5 flex-wrap">

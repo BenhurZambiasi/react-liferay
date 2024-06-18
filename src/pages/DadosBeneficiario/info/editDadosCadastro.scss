@@ -4,13 +4,45 @@
   gap: 48px;
   height: 100%;
 
+  .endereco-residencial-edit-limpar-form {
+    height: 100px;
+    width: 50%;
+    font-family: Unimed Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+
+    div {
+      cursor: pointer;
+    }
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 500.98px) {
+    .endereco-residencial-edit-container-cep {
+      flex-wrap: wrap !important;
+    }
+
+    .endereco-residencial-edit-limpar-form {
+      width: 100%;
+      height: 30px;
+      justify-content: center;
+    }
+  }
+
+
   span {
     line-height: normal;
     font-style: normal;
   }
+
   .header-edit {
     display: flex;
     flex-direction: column;
+
     .title {
       color: #282828;
       font-family: "Unimed Slab";
@@ -29,19 +61,23 @@
 
     @media (max-width: 412.98px) {
       gap: 32px;
+
       .title {
         color: #282828;
         font-size: 20px;
       }
+
       .info {
         justify-content: start;
       }
     }
   }
+
   .content-form {
     overflow: auto;
     display: flex;
     height: 100%;
+
     &::-webkit-scrollbar {
       width: 10px;
     }
@@ -50,6 +86,7 @@
       border-radius: 62.4375rem;
       background: var(--secondary-secondary-l-1, #808080);
     }
+
     .actions {
       display: flex;
       flex: 1;
@@ -72,7 +109,8 @@
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
-        line-height: 16px; /* 100% */
+        line-height: 16px;
+        /* 100% */
         text-transform: uppercase;
       }
 
@@ -85,8 +123,10 @@
         background: var(--light-white, #fff);
         color: var(--secondary-secondary, #4d4d4d);
       }
+
       @media (max-width: 493.98px) {
         flex-direction: column;
+
         button {
           width: 100%;
         }
