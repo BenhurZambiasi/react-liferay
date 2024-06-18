@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { fetchAddress } from "../../../services/api";
 import { TextField } from "../TextField";
+import { FileField } from "../inputFile/inputFile";
+
 import { ContainerEdit } from "./ContainerEdit";
 import { Mask } from "../../../utils/mask";
 
@@ -17,8 +19,9 @@ export const EditEnderecoResidencial = () => {
     ramal: "",
     celular: "",
     email: "",
-    comprovante: "",
+    comprovante: [],
   });
+  const [comprovantes, setComprovantes] = useState([]);
 
   useEffect(() => {
     const fetchAndSetAddress = async () => {
@@ -43,8 +46,19 @@ export const EditEnderecoResidencial = () => {
   }, [formData.cep]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, files } = e.target;
+    if (name === "comprovante") {
+      setFormData((prevData) => {
+        const updatedData = {
+          ...prevData,
+          [name]: [...prevData[name], ...files],
+        };
+        console.log(updatedData.comprovante);
+        return updatedData;
+      });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   return (
@@ -152,14 +166,18 @@ export const EditEnderecoResidencial = () => {
           required
         />
       </div>
-      <div className="d-flex gap-5 flex-wrap">
-        <TextField
-          label={"Anexar comprovante de endereço residencial"}
-          name={"comprovante"}
-          onChange={handleChange}
-          value={formData.comprovante}
-          required
-        />
+      <div>
+        <div className="form-reembolso">
+          <FileField
+            title="Anexar comprovante de endereço residencial"
+            required
+            placeholder="Selecione um arquivo"
+            onChange={setComprovantes}
+            icon={() => (
+              <span className="material-symbols-outlined position-static">attach_file</span>
+            )}
+          />
+        </div>
       </div>
     </ContainerEdit>
   );

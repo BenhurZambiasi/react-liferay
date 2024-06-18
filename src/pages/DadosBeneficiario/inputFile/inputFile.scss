@@ -1,0 +1,387 @@
+.form-reembolso {
+  .form-container {
+    border-radius: 8px;
+    border: 1px solid var(--light-light-d-1, #e2e4ea);
+    background: var(--light-white, #fff);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.12);
+    padding: 20px;
+  }
+
+  .title {
+    color: #4d4d4d;
+    font-family: "Unimed Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  .tabela-header {
+    border-radius: 8px;
+    border: 1px solid var(--light-light-d-1, #E2E4EA);
+    background: var(--light-white, #FFF);
+    display: flex;
+    padding: 12px 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  .form-tabela {
+    padding: 32px 40px 40px 40px;
+    border-radius: 8px;
+    border: 1px solid var(--light-light-d-1, #E2E4EA);
+    background: var(--light-white, #FFF);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  .btn-cancel {
+    border-radius: 4px;
+    border: 1px solid var(--secondary-secondary-l-2, #C4C4C4);
+    background: var(--light-white, #FFF);
+    padding: 16px 20px;
+    color: var(--secondary-secondary, #4D4D4D);
+    text-transform: uppercase;
+    font-family: "Unimed Sans";
+  }
+
+  .btn-next {
+    border-radius: 4px;
+    background: var(--primary-primary, #00995C);
+    padding: 16px 20px;
+    border: none;
+    color: #FFF;
+    text-transform: uppercase;
+    font-family: "Unimed Sans";
+    text-transform: none;
+
+    &:hover {
+      background-color: white;
+      color: #00995C;
+      border: solid 1px #00995C;
+    }
+  }
+
+  li {
+    line-height: normal;
+  }
+
+  .uploaded-file {
+    border-radius: 16px;
+    background: #F7F8F9;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    color: var(--secondary-secondary, #4D4D4D);
+    font-size: 12px !important;
+
+    .material-symbols-outlined:first-child {
+      font-variation-settings:
+        'FILL' 1
+    }
+
+    .material-symbols-outlined:last-child {
+      cursor: pointer;
+
+      &:hover {
+        color: #00995C;
+      }
+    }
+
+    .material-symbols-outlined {
+      font-size: 16px;
+      background-color: transparent;
+    }
+  }
+
+  .date-picker {
+    .form-control {
+      height: 42px;
+    }
+
+    .input-group-inset-item {
+      background-color: white;
+      border-radius: 0px 8px 8px 0px;
+      border-color: var(--secondary-secondary-l-2, #c4c4c4);
+    }
+  }
+
+  .form-control .btn-counter .material-symbols-outlined {
+    font-size: 20px;
+    color: #282828;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .text-14 {
+    font-size: 14px !important;
+  }
+
+  .text-12 {
+    font-size: 12px !important;
+  }
+
+  .line-h-100 {
+    line-height: 100% !important;
+  }
+
+  .strong-green {
+    color: var(--primary-primary-d-1, #00804D) !important;
+  }
+
+  .font-family-unimed-sans {
+    font-family: "Unimed Sans" !important;
+  }
+
+  .color-dark-gray {
+    color: var(--dark-dark-l-2, #404040);
+  }
+
+  .color-light-black {
+    color: #4D4D4D;
+  }
+
+  .required-field {
+    color: red;
+  }
+
+  .input-error-message {
+    color: var(--danger-danger, #da1414);
+    font-family: "Unimed Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+
+    .material-symbols-outlined {
+      font-size: 16px !important;
+      margin-right: 8px;
+      font-variation-settings: "FILL" 1;
+    }
+  }
+
+  .form-control {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-secondary-l-2, #c4c4c4);
+    padding: 8px 16px;
+
+    .input-textfield {
+      font-size: 14px;
+    }
+
+    .material-symbols-outlined {
+      color: #808080;
+      background-color: transparent;
+      font-size: 20px;
+    }
+
+    input:focus-visible {
+      outline: none;
+    }
+  }
+
+  .banco-box {
+    border-radius: 8px;
+    border: 1px solid var(--primary-primary, #00995C);
+    background: var(--light-white, #FFF);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.12);
+    padding: 20px;
+
+    .material-symbols-outlined {
+      font-size: 20px;
+      background-color: transparent;
+    }
+
+    .material-symbols-outlined:last-child {
+      color: #808080;
+      cursor: pointer;
+      background-color: transparent;
+
+      &:hover {
+        color: #00995C;
+      }
+    }
+  }
+
+  .required-field-text {
+    color: var(--secondary-secondary-l-1, #808080);
+    font-family: "Unimed Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .error-text {
+    display: flex;
+    color: var(--danger-danger, #DA1414);
+    font-family: "Unimed Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    align-items: center;
+
+    .material-symbols-outlined {
+      font-size: 16px;
+      background-color: transparent;
+      font-variation-settings:
+        'FILL' 1
+    }
+  }
+}
+
+.component-title {
+  color: #282828;
+  text-align: center;
+  font-family: "Unimed Slab";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.btn-icon-gray {
+  border-radius: 4px;
+  border: 1px solid var(--secondary-secondary-l-2, #C4C4C4);
+  background: var(--light-white, #FFF);
+  color: var(--secondary-secondary, #4D4D4D);
+  font-family: "Unimed Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  display: flex;
+  padding: 2.5px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  line-height: 150%;
+
+  &:hover {
+    border: 1px solid var(--primary-primary, #00995C);
+    background: var(--primary-primary, #00995C);
+    color: white;
+  }
+
+  .material-symbols-outlined {
+    font-size: 20px;
+    background-color: transparent;
+  }
+}
+
+.btn-counter {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: none;
+  align-items: center;
+  background-color: #E2E4EA;
+
+  &:hover {
+    background-color: #00995C;
+  }
+}
+
+.beneficiario-box {
+  padding: 20px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--light-light-d-1, #E2E4EA);
+  background: var(--light-white, #FFF);
+  margin-bottom: 28px;
+}
+
+.container-file {
+
+  .file-input-wrapper input {
+    opacity: 0;
+
+  }
+
+  .placeholder-text {
+    color: var(--secondary-secondary-l-1, #808080);
+    font-family: "Unimed Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    display: contents;
+  }
+}
+
+.date-picker .date-picker-dropdown-toggle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%235f6368'%3E%3Cpath d='M216-96q-29.7 0-50.85-21.5Q144-139 144-168v-528q0-29 21.15-50.5T216-768h72v-96h72v96h240v-96h72v96h72q29.7 0 50.85 21.5Q816-725 816-696v528q0 29-21.15 50.5T744-96H216Zm0-72h528v-360H216v360Zm0-432h528v-96H216v96Zm0 0v-96 96Zm264.21 216q-15.21 0-25.71-10.29t-10.5-25.5q0-15.21 10.29-25.71t25.5-10.5q15.21 0 25.71 10.29t10.5 25.5q0 15.21-10.29 25.71t-25.5 10.5Zm-156 0q-15.21 0-25.71-10.29t-10.5-25.5q0-15.21 10.29-25.71t25.5-10.5q15.21 0 25.71 10.29t10.5 25.5q0 15.21-10.29 25.71t-25.5 10.5Zm312 0q-15.21 0-25.71-10.29t-10.5-25.5q0-15.21 10.29-25.71t25.5-10.5q15.21 0 25.71 10.29t10.5 25.5q0 15.21-10.29 25.71t-25.5 10.5Zm-156 144q-15.21 0-25.71-10.29t-10.5-25.5q0-15.21 10.29-25.71t25.5-10.5q15.21 0 25.71 10.29t10.5 25.5q0 15.21-10.29 25.71t-25.5 10.5Zm-156 0q-15.21 0-25.71-10.29t-10.5-25.5q0-15.21 10.29-25.71t25.5-10.5q15.21 0 25.71 10.29t10.5 25.5q0 15.21-10.29 25.71t-25.5 10.5Zm312 0q-15.21 0-25.71-10.29t-10.5-25.5q0-15.21 10.29-25.71t25.5-10.5q15.21 0 25.71 10.29t10.5 25.5q0 15.21-10.29 25.71t-25.5 10.5Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 39px;
+}
+
+.date-picker-calendar-header .date-picker-nav-item {
+  .lexicon-icon-angle-left {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><mask id="mask0_171_2434" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="1" width="8" height="15"><path d="M3.23132 9.01953L9.60847 15.265C10.3515 15.9788 11.5055 14.9065 10.7498 14.1772L4.9671 8.50036L10.753 2.81733C11.5087 2.10038 10.3578 1.02188 9.61479 1.73264L3.23132 7.98119C2.93728 8.26859 2.90883 8.7105 3.23132 9.01953Z" fill="%236B6C7E"/></mask><g mask="url(%23mask0_171_2434)"><rect y="0.5" width="16" height="16" fill="%23808080"/></g></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .lexicon-icon-angle-right {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><mask id="mask0_171_2444" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="5" y="1" width="8" height="15"><path d="M12.7687 7.98052L6.38553 1.73262C5.6394 1.02192 4.49176 2.10032 5.24737 2.81719L11.033 8.49964L5.25053 14.179C4.49176 14.9051 5.64572 15.9774 6.39185 15.2667L12.7687 9.02184C13.0912 8.70976 13.0627 8.26789 12.7687 7.98052Z" fill="%236B6C7E"/></mask><g mask="url(%23mask0_171_2444)"><rect y="0.5" width="16" height="16" fill="%23808080"/></g></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .lexicon-icon-simple-circle {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="%235f6368"><path d="M360-300q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.date-picker-nav .input-date-picker-year button {
+  background-color: white;
+  border: none;
+  width: 76px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.error-agenda-msg {
+
+  .form-control,
+  .date-picker .input-group-inset-item {
+    border-color: var(--danger-danger, #DA1414) !important;
+    background: var(--danger-danger-l-2, #FEEFEF) !important;
+  }
+}
+
+.error-msg {
+  .material-symbols-outlined {
+    font-size: 16px;
+    font-variation-settings: "FILL" 1;
+    background-color: transparent;
+  }
+
+  .font-weight-bold {
+    font-size: 14px;
+  }
+}
+
+.error-input {
+  border: 1px solid var(--danger-danger, #DA1414) !important;
+  background: var(--danger-danger-l-2, #FEEFEF) !important;
+}
+
+@media (max-width: 575.98px) {
+  .form-reembolso {
+    .component-title {
+      font-size: 20px;
+    }
+
+    .form-control {
+      font-size: 14px;
+    }
+  }
+}
