@@ -47,13 +47,23 @@ export const getTrocaPlano = async () => {
   });
 };
 
+
+
 export const Historico = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [carteirasEmitidas, setCarteirasEmitidas] = useState([]);
-
   const [carteirasEmitir, setCarteirasEmitir] = useState([]);
-
   const [trocaPlano, setTrocaPlano] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getTrocaPlano();
+      setTrocaPlano(result.data);
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
 
   const data = [
     {
@@ -136,7 +146,7 @@ export const Historico = () => {
     <div className="container historico-do-cadastro-container">
       {loading ? (
         <div className="d-flex justify-content-center">
-          <div className=" loading-spinner" />
+          <div className="loading-spinner" />
         </div>
       ) : (
         data.map(({ title, columns, dataColumns }) => (

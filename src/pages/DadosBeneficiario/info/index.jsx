@@ -14,6 +14,7 @@ import { EditEnderecoCobranca } from "./EditEnderecoCobranca";
 export const Info = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [content, setContent] = useState(0);
+  const [accordionOpen, setAccordionOpen] = useState("");
 
   const handleSelectEdit = (ind) => {
     setIsOpen(true);

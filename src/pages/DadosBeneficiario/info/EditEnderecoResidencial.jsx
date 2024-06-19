@@ -28,7 +28,7 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
 
   useEffect(() => {
     const fetchAndSetAddress = async () => {
-      const formattedCep = formData.cep.replace("-", ""); // Remove o hífen, se houver
+      const formattedCep = formData.cep.replace("-", "");
       if (formattedCep.length === 8) {
         const addressData = await fetchAddress(formattedCep);
         if (addressData) {
