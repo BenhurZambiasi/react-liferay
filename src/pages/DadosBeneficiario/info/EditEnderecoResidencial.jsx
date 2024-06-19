@@ -5,8 +5,9 @@ import { FileField } from "../inputFile/inputFile";
 
 import { ContainerEdit } from "./ContainerEdit";
 import { Mask } from "../../../utils/mask";
+import { ShowModal } from "./ShowModal";
 
-export const EditEnderecoResidencial = () => {
+export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
   const [formData, setFormData] = useState({
     cep: "",
     endereco: "",
@@ -22,6 +23,8 @@ export const EditEnderecoResidencial = () => {
     comprovante: [],
   });
   const [comprovantes, setComprovantes] = useState([]);
+  const [showModalConfirm, setShowModalConfirm] = useState(false);
+  const [showModalUpdate, setShowModalUpdate] = useState(false);
 
   useEffect(() => {
     const fetchAndSetAddress = async () => {
@@ -60,9 +63,17 @@ export const EditEnderecoResidencial = () => {
       setFormData({ ...formData, [name]: value });
     }
   };
+  const onSave = () => {
+    console.log("Data saved:", formData);
+    setShowModalConfirm(true);
+  };
 
+  const onCancel = () => {
+    console.log("Edit canceled");
+    handleCloseEdit()
+  };
   return (
-    <ContainerEdit title={"Endereço residencial"}>
+    <ContainerEdit title={"Endereço residencial"} onSave={onSave} onCancel={onCancel}>
       <div className="form-check d-flex align-items-center">
         <input type="checkbox" id="entregaCorrespondencias" name="entregaCorrespondencias" />
         <label htmlFor="entregaCorrespondencias" className="ml-2 mb-0">Desejo que as demais correspondências sejam entregues neste endereço</label>
@@ -75,8 +86,8 @@ export const EditEnderecoResidencial = () => {
           value={Mask("000000-00", formData.cep)}
           required
         />
-        <div className="d-flex align-items-center endereco-residencial-edit-limpar-form" onClick={() => setFormData({ ...formData, endereco: "", bairro: "", municipio: "", uf: "", cep: "" })}>
-          <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center endereco-residencial-edit-limpar-form">
+          <div className="d-flex align-items-center" onClick={() => setFormData({ ...formData, endereco: "", bairro: "", municipio: "", uf: "", cep: "" })}>
             <span className="material-symbols-outlined position-static">
               delete
             </span>
@@ -91,14 +102,12 @@ export const EditEnderecoResidencial = () => {
           onChange={handleChange}
           value={formData.endereco}
           disabled
-          required
         />
         <TextField
           label={"Bairro"}
           name={"bairro"}
           onChange={handleChange}
           value={formData.bairro}
-          required
           disabled
         />
       </div>
@@ -108,7 +117,6 @@ export const EditEnderecoResidencial = () => {
           name={"municipio"}
           onChange={handleChange}
           value={formData.municipio}
-          required
           disabled
         />
         <TextField
@@ -116,7 +124,6 @@ export const EditEnderecoResidencial = () => {
           name={"uf"}
           onChange={handleChange}
           value={formData.uf}
-          required
           disabled
         />
       </div>
@@ -140,7 +147,7 @@ export const EditEnderecoResidencial = () => {
           label={"Telefone"}
           name={"telefone"}
           onChange={handleChange}
-          value={formData.telefone}
+          value={Mask("(00) 00000-0000", formData.telefone)}
           required
         />
         <TextField
@@ -155,7 +162,7 @@ export const EditEnderecoResidencial = () => {
           label={"Celular"}
           name={"celular"}
           onChange={handleChange}
-          value={formData.celular}
+          value={Mask("(00) 00000-0000", formData.celular)}
           required
         />
         <TextField
@@ -179,6 +186,25 @@ export const EditEnderecoResidencial = () => {
           />
         </div>
       </div>
+
+      {showModalConfirm && (
+        <ShowModal
+          title={"Atualização cadastral"}
+          text={"Você está prestes a alterar seus dados cadastrais. Tem certeza que deseja prosseguir?"}
+          text_sucess={"Sim, prosseguir"}
+          onClose={() => setShowModalConfirm(false)}
+          onSave={() => { setShowModalUpdate(true), setShowModalConfirm(false) }}
+        />
+      )}
+      {showModalUpdate && (
+        <ShowModal
+          title={"Atualização cadastral"}
+          text={"Sua solicitação de alteração dos dados gerou o protocolo <strong>Nº 80005236765.</strong> A validação será efetuada em até 2 dias úteis."}
+          text_failure="Fechar"
+          className={"consulta-beneficiario-show-modal-container-grande"}
+          onClose={() => { setShowModalUpdate(false), handleCloseEdit() }}
+        />
+      )}
     </ContainerEdit>
   );
 };

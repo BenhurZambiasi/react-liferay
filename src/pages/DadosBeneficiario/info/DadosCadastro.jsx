@@ -1,3 +1,4 @@
+import { Notification } from "../Notification";
 import { FieldText } from "./FieldText";
 
 /* eslint-disable react/prop-types */
@@ -5,6 +6,9 @@ export const DadosCadastro = () => {
   return (
     <div className="d-flex flex-column w-100 ">
       <div className="d-flex flex-column w-100 p-4 m-0 gap-6">
+      <Notification title={"em andamento"} nprotocolo={"80005236765"} dtSolicitacao={"03/06/2024"} status={"Pendente"} observacao={"-"}/>
+      <Notification title={"aprovada"} nprotocolo={"80005236765"} dtSolicitacao={"03/06/2024"} status={"Aprovado"} observacao={"OK"}/>
+      <Notification title={"rejeitada"} nprotocolo={"80005236765"} dtSolicitacao={"03/06/2024"} status={"Rejeitado"} observacao={"Solicitação indevida"}/>
         <div className="row m-0 gap-sm-6">
           <div className="col-md-4 col-sm-12 p-0">
             <FieldText label="Código" value="08650003676091009" />
@@ -238,7 +242,7 @@ export const DadosCadastro = () => {
             />
           </div>
         </div>
-        <div className="row m-0 gap-sm-6 gap-1">
+        <div className="row m-0 gap-sm-6">
           <div className="col-md-4 col-sm-12 p-0">
             <FieldText
               label="Prazo máximo previsto no contrato para carências"

@@ -54,9 +54,9 @@ export const Info = () => {
   const renderContentDrawer = () => {
     switch (content) {
       case 0:
-        return <EditDadosCadastro />;
+        return <EditDadosCadastro handleCloseEdit={handleCloseEdit} />;
       case 1:
-        return <EditEnderecoResidencial />;
+        return <EditEnderecoResidencial handleCloseEdit={handleCloseEdit} />;
       case 2:
         return <EditEnderecoCorrespondencia />;
       case 3:

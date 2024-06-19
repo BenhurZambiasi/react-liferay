@@ -1,0 +1,102 @@
+.consulta-beneficiario-show-modal-container-backgorund {
+    background: #00000099;
+    top: 0;
+    left: 0;
+
+    .consulta-beneficiario-show-modal-container.consulta-beneficiario-show-modal-container-grande {
+        width: 600px;
+    }
+
+    .consulta-beneficiario-show-modal-container {
+        width: 462px;
+        padding: 24px;
+        border-radius: 4px;
+        font-family: Unimed Sans;
+        background-color: #FFFFFF;
+
+        .material-symbols-outlined {
+            top: -18px;
+            right: -18px;
+        }
+
+        .consulta-beneficiario-show-modal-container-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 25px;
+            color: #282828;
+
+        }
+
+        .consulta-beneficiario-show-modal-container-texto {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: #4D4D4D;
+
+        }
+
+        .consulta-beneficiario-show-modal-container-voltar {
+            width: 76px;
+            height: 40px;
+            padding: 8px 16px 8px 16px;
+            gap: 8px;
+            border-radius: 4px;
+            border: 1px solid #C4C4C4;
+
+            span {
+                color: #4D4D4D;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+            }
+        }
+
+        .consulta-beneficiario-show-modal-container-prosseguir {
+            width: 143px;
+            height: 40px;
+            gap: 8px;
+            border-radius: 4px;
+            background: #00995C;
+            border: none;
+
+            span {
+                color: #FFFFFF;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+
+            }
+        }
+    }
+
+    @media (max-width: 625.99px) {
+        .consulta-beneficiario-show-modal-container.consulta-beneficiario-show-modal-container-grande {
+            width: 400px;
+        }
+
+        .consulta-beneficiario-show-modal-container {
+            width: 400px;
+            padding: 16px;
+
+            .material-symbols-outlined {
+                top: -12px;
+                right: -12px;
+            }
+        }
+
+        .consulta-beneficiario-show-modal-container-prosseguir,
+        .consulta-beneficiario-show-modal-container-voltar {
+            width: 100% !important;
+        }
+    }
+
+    @media (max-width: 435.99px) {
+        .consulta-beneficiario-show-modal-container.consulta-beneficiario-show-modal-container-grande {
+            width: 248px;
+        }
+
+        .consulta-beneficiario-show-modal-container {
+            width: 248px;
+        }
+    }
+}

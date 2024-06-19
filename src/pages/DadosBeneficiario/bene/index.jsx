@@ -66,7 +66,6 @@ export const Beneficiarios = ({ title }) => {
 
   return (
     <div className="container container-benef">
-      <h1>{title}</h1>
       {beneficiarios.sort(handleSort).map((benef) => {
         return (
           <div

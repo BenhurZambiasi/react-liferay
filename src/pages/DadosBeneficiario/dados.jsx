@@ -8,16 +8,16 @@ export const DadosBeneficiario = () => {
   const [tabActive, setTabActive] = useState(0);
   const tabs = [
     {
-      label: "Info",
+      label: "Informações cadastrais",
       Component: () => <Info />,
     },
     {
-      label: "Historico",
+      label: "Histórico do cadastro",
       Component: () => <Historico />,
     },
     {
-      label: "Beneficiarios",
-      Component: () => <Beneficiarios title={"eita"} />,
+      label: "Beneficiários",
+      Component: () => <Beneficiarios />,
     },
   ];
 

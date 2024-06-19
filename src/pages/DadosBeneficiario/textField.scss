@@ -7,7 +7,7 @@
 
   &[data-disabled="true"] {
     label {
-      color: #c4c4c4;
+      color: #C4C4C4;
 
       font-family: "Unimed Sans";
       font-size: 14px;
@@ -25,6 +25,7 @@
       border-radius: 8px;
       border: 1px solid var(--secondary-secondary-l-3, #dedede);
       background: var(--light-light-l-1, #f7f8f9);
+      color: #C4C4C4;
       cursor: default;
     }
   }

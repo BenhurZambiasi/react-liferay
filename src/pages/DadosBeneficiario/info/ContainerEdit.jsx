@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 export const ContainerEdit = ({ title, onSave, onCancel, children }) => {
   return (
-    <div className="container-edit-dados">
+    <div className="container-edit-dados position-relative">
       <div className="header-edit">
         <span className="title">{title}</span>
         <span className="info">* Campos obrigatórios</span>

@@ -1,0 +1,46 @@
+.dados-beneficiario-cadastro-notification-em-andamento {
+    border: 1px solid #89A7E0;
+    background: #EEF2FA;
+}
+
+.dados-beneficiario-cadastro-notification-aprovada {
+    border: 1px solid #5ACA75;
+    background: #EDF9F0;
+}
+
+.dados-beneficiario-cadastro-notification-rejeitada {
+    border: 1px solid #F48989;
+    background: #FEEFEF;
+}
+
+.dados-beneficiario-cadastro-notification-em-andamento,
+.dados-beneficiario-cadastro-notification-aprovada,
+.dados-beneficiario-cadastro-notification-rejeitada {
+    display: flex;
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+
+    .dados-beneficiario-cadastro-notification-title,
+    strong {
+        color: #282828;
+        text-align: center;
+        font-family: "Unimed Sans";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+    }
+
+    span {
+        color: #4D4D4D;
+        font-family: "Unimed Sans";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
+}

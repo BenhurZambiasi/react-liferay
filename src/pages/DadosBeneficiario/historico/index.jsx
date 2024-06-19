@@ -48,7 +48,7 @@ export const getTrocaPlano = async () => {
 };
 
 export const Historico = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [carteirasEmitidas, setCarteirasEmitidas] = useState([]);
 
   const [carteirasEmitir, setCarteirasEmitir] = useState([]);
