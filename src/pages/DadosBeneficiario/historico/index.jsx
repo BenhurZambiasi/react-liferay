@@ -1,53 +1,12 @@
 import { useState, useEffect } from "react";
 import { Accordion } from "../Accordion";
-import { formatDate } from "../../../utils/date";
 import { Result } from "./Result";
 import "./historico.scss";
-
-export const getTrocaPlano = async () => {
-  return await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        data: [
-          {
-            plano: "Unimed Básico Corp Coletivo Empresarial II",
-            dtHistorico: formatDate({
-              date: "2022-01-20T14:33:36.008Z",
-              format: "DD/MM/YYYY",
-            }),
-            dtInicio: formatDate({
-              date: "2022-01-20T14:33:36.008Z",
-              format: "DD/MM/YYYY",
-            }),
-            dtFim: formatDate({
-              date: "2022-01-20T14:33:36.008Z",
-              format: "DD/MM/YYYY",
-            }),
-            usuario: "A14992",
-          },
-          {
-            plano: "Unimed Básico Corp Coletivo Empresarial I",
-            dtHistorico: formatDate({
-              date: "2022-01-20T14:33:36.008Z",
-              format: "DD/MM/YYYY",
-            }),
-            dtInicio: formatDate({
-              date: "2022-01-20T14:33:36.008Z",
-              format: "DD/MM/YYYY",
-            }),
-            dtFim: formatDate({
-              date: "2022-01-20T14:33:36.008Z",
-              format: "DD/MM/YYYY",
-            }),
-            usuario: "A01890",
-          },
-        ],
-      });
-    }, 1000);
-  });
-};
-
-
+import {
+  getTrocaPlano,
+  getCarteirasEmitidas,
+  getCarteirasEmitir,
+} from "../../../services/api";
 
 export const Historico = () => {
   const [loading, setLoading] = useState(true);
@@ -57,8 +16,12 @@ export const Historico = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getTrocaPlano();
-      setTrocaPlano(result.data);
+      const resultPlano = await getTrocaPlano();
+      const resultEmitidas = await getCarteirasEmitidas();
+      const resultEmitir = await getCarteirasEmitir();
+      setTrocaPlano(resultPlano.data);
+      setCarteirasEmitidas(resultEmitidas.data);
+      setCarteirasEmitir(resultEmitir.data);
       setLoading(false);
     };
 

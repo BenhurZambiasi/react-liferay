@@ -11,7 +11,7 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;
-    .material-symbols-outlined{
+    .material-symbols-outlined {
       font-size: 20px;
     }
     div {
@@ -28,13 +28,13 @@
     display: flex;
 
     .material-symbols-outlined {
-      background: #F7F8F9;
+      background: #f7f8f9;
       top: 6px;
       font-size: 18px;
     }
 
     .material-symbols-outlined:first-child {
-      color: #4D4D4D;
+      color: #4d4d4d;
       left: 10px;
     }
 
@@ -49,14 +49,14 @@
       padding: 8px;
       gap: 30px;
       border-radius: 16px;
-      background: #F7F8F9;
+      background: #f7f8f9;
 
       .endereco-residencial-edit-container-nome-do-arquivo {
         font-family: Unimed Sans;
         font-size: 12px;
         font-weight: 400;
         line-height: 18px;
-        color: #4D4D4D;
+        color: #4d4d4d;
         white-space: nowrap;
         overflow: hidden;
         z-index: 1;
@@ -64,11 +64,8 @@
         max-width: 140px;
         overflow: hidden;
       }
-
     }
-
   }
-
 
   @media (max-width: 500.98px) {
     .endereco-residencial-edit-container-cep {
@@ -80,14 +77,13 @@
       height: 30px;
       justify-content: center;
     }
-    .endereco-residencial-edit-container-arquivo{
+    .endereco-residencial-edit-container-arquivo {
       width: 100% !important;
     }
-    .endereco-residencial-edit-container-arquivos{
+    .endereco-residencial-edit-container-arquivos {
       flex-direction: column;
     }
   }
-
 
   span {
     line-height: normal;

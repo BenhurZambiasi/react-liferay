@@ -43,7 +43,8 @@
     "swiffy-slider": "^1.6.0",
     "swiper": "^11.0.3",
     "use-places-autocomplete": "^4.0.1",
-    "usehooks-ts": "^3.0.2"
+    "usehooks-ts": "^3.0.2",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",

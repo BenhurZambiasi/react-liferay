@@ -10,52 +10,76 @@ import { EditDadosCadastro } from "./EditDadosCadastro";
 import { EditEnderecoResidencial } from "./EditEnderecoResidencial";
 import { EditEnderecoCorrespondencia } from "./EditEnderecoCorrespondencia";
 import { EditEnderecoCobranca } from "./EditEnderecoCobranca";
+import { generateProtocoloNumber } from "../../../services/api";
 
 export const Info = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenAccordion, setIsOpenAccordion] = useState(false);
   const [content, setContent] = useState(0);
-  const [accordionOpen, setAccordionOpen] = useState("");
+
+  const [protocoloDados, setProtocoloDados] = useState({
+    status: "",
+    protocolo: "",
+    dtSolicitacao: "",
+    observacao: "",
+  });
 
   const handleSelectEdit = (ind) => {
     setIsOpen(true);
     setContent(ind);
   };
 
-  const handleCloseEdit = () => {
+  const handleCloseEdit = (openAccordion) => {
     setIsOpen(false);
+    if (openAccordion) {
+      setIsOpenAccordion(true);
+    }
+  };
+
+  const generateProtocolo = async () => {
+    return await generateProtocoloNumber().then((resp) => {
+      setProtocoloDados(resp);
+    });
   };
 
   const infos = [
     {
       title: "Dados do cadastro",
-      Component: () => <DadosCadastro />,
-      EditComponent: <EditDadosCadastro />,
+      Component: () => <DadosCadastro protocoloDados={protocoloDados} />,
+      hasEdit: true,
     },
     {
       title: "Endereço residencial",
       Component: () => <EnderecoResidencial />,
-      EditComponent: () => <EditEnderecoResidencial />,
+      hasEdit: true,
     },
     {
       title: "Endereço de correspondência",
       Component: () => <EnderecoCorrespondencia />,
-      EditComponent: () => <EditEnderecoCorrespondencia />,
+      hasEdit: true,
     },
     {
       title: "Endereço de cobrança",
       Component: () => <EnderecoCobranca />,
-      EditComponent: () => <EditEnderecoCobranca />,
+      hasEdit: true,
     },
     {
       title: "Dados complementares",
       Component: () => <DadosComplementares />,
+      hasEdit: false,
     },
   ];
 
   const renderContentDrawer = () => {
     switch (content) {
       case 0:
-        return <EditDadosCadastro handleCloseEdit={handleCloseEdit} />;
+        return (
+          <EditDadosCadastro
+            handleCloseEdit={handleCloseEdit}
+            generateProtocolo={generateProtocolo}
+            protocoloDados={protocoloDados.protocolo}
+          />
+        );
       case 1:
         return <EditEnderecoResidencial handleCloseEdit={handleCloseEdit} />;
       case 2:
@@ -71,11 +95,12 @@ export const Info = () => {
   return (
     <div>
       <div className="container d-flex flex-column gap-3">
-        {infos.map(({ Component, title, EditComponent }, index) => {
+        {infos.map(({ Component, title, hasEdit }, index) => {
           return (
             <Accordion
+              isOpen={content == index && isOpenAccordion}
               key={index}
-              onEdit={EditComponent && (() => handleSelectEdit(index))}
+              onEdit={hasEdit && (() => handleSelectEdit(index))}
               title={title}>
               <Component />
             </Accordion>

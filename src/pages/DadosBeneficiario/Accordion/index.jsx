@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import "./accordion.scss";
 
-export const Accordion = ({ children, onEdit, title }) => {
+export const Accordion = ({ children, onEdit, title, isOpen }) => {
   return (
-    <details>
+    <details open={isOpen}>
       <summary>
         <span className="title-accordion">{title}</span>
         <div className="d-flex align-items-center gap-6">

@@ -6,6 +6,7 @@ dayjs.extend(utc);
 dayjs.locale(ptBr);
 
 export const formatDate = ({ format, date }) => {
+  if (!date) return "";
   return dayjs(date).utc(false).format(format);
 };
 
