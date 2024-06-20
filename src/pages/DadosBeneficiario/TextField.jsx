@@ -27,7 +27,7 @@ export const TextField = ({
 
           <input
             readOnly={disabled}
-            type={"text"}
+            type={type}
             name={name}
             id={name}
             value={formatTypeNumber()}

@@ -4,25 +4,16 @@ export const Mask = (mask, value) => {
   return createMask.resolve(value);
 };
 
-export function mascaraRG(rg) {
-  // Remove todos os caracteres não numéricos
-  let rgNumerico = rg.replace(/\D/g, "");
+export const mascaraRG = (rg) => {
+  const cleaned = rg.replace(/\D/g, '').slice(0, 10);
 
-  // Limita o tamanho a 10 caracteres
-  rgNumerico = rgNumerico.slice(0, 10);
-
-  // Aplica a máscara
-  if (rgNumerico.length === 9) {
-    // Formato 9 dígitos: 12.345.678-9
-    return rgNumerico.replace(/(\d{2})(\d{3})(\d{3})(\d{1})/, "$1.$2.$3-$4");
-  } else if (rgNumerico.length === 8) {
-    // Formato 8 dígitos: 12.345.678
-    return rgNumerico.replace(/(\d{2})(\d{3})(\d{3})/, "$1.$2.$3");
-  } else if (rgNumerico.length === 10) {
-    // Formato 10 dígitos: 12.345.678-90
-    return rgNumerico.replace(/(\d{2})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+  if (cleaned.length === 8) {
+    return cleaned.replace(/(\d{2})(\d{3})(\d{3})/, '$1.$2.$3');
+  } else if (cleaned.length === 9) {
+    return cleaned.replace(/(\d{2})(\d{3})(\d{3})(\d)/, '$1.$2.$3-$4');
+  } else if (cleaned.length === 10) {
+    return cleaned.replace(/(\d{2})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
   } else {
-    // Retorna o RG sem máscara se não corresponder a nenhum formato esperado
-    return rgNumerico;
+    return rg;
   }
-}
+};

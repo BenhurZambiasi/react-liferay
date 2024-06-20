@@ -12,6 +12,33 @@
     line-height: 150%;
   }
 
+  .dados-beneficiario-cadastro-select {
+    .container-textfield input {
+      padding: 0px !important;
+    }
+
+    .container-custom-select {
+      .container-input {
+        background-color: white;
+        outline: none;
+        display: flex;
+        padding: 8px 16px;
+        align-items: center;
+        gap: 12px;
+        flex: 1 0 0;
+        align-self: stretch;
+        border-radius: 8px;
+        border: 1px solid #c4c4c4;
+      }
+
+      .material-symbols-outlined {
+        background-color: transparent;
+        top: 9px;
+        right: 9px;
+      }
+    }
+  }
+
   .endereco-residencial-edit-limpar-form {
     height: 100px;
     width: 48.6%;

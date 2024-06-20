@@ -7,20 +7,19 @@ import { ContainerEdit } from "./ContainerEdit";
 import { Mask } from "../../../utils/mask";
 import { ShowModal } from "./ShowModal";
 
-export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
+export const EditEnderecoResidencial = ({ handleCloseEdit,enderecoResidencial }) => {
   const [formData, setFormData] = useState({
-    cep: "",
-    endereco: "",
-    bairro: "",
-    municipio: "",
-    uf: "",
-    numero: "",
-    complemento: "",
-    telefone: "",
-    ramal: "",
-    celular: "",
-    email: "",
-    comprovante: [],
+    cep: enderecoResidencial.cep,
+    endereco: enderecoResidencial.endereco,
+    bairro: enderecoResidencial.bairro,
+    municipio: enderecoResidencial.municipio,
+    uf: enderecoResidencial.uf,
+    numero: enderecoResidencial.numero,
+    complemento: enderecoResidencial.complemento,
+    telefone: enderecoResidencial.telefone,
+    ramal: enderecoResidencial.ramal,
+    celular: enderecoResidencial.celular,
+    email: enderecoResidencial.email,
   });
   const [showError, setShowError] = useState({
     cep: false,
@@ -35,7 +34,8 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
 
   useEffect(() => {
     const fetchAndSetAddress = async () => {
-      const formattedCep = formData.cep.replace("-", "");
+      const formattedCep = formData.cep.replace("-", "").slice(0, 8);
+
       if (formattedCep.length === 8) {
         const addressData = await fetchAddress(formattedCep);
         if (addressData) {
@@ -62,40 +62,42 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
     const { name, value } = e.target;
 
     if (name === "numero" && !value.length) {
-      setShowError({ ...showError, numero: true });
+      setShowError((prevState) => ({ ...prevState, numero: true }));
     } else {
-      setShowError({ ...showError, numero: false });
+      setShowError((prevState) => ({ ...prevState, numero: false }));
     }
     if (name === "telefone") {
       const telefoneValido = /^\([1-9]{2}\) [2-9][0-9]{3,4}-[0-9]{4}$/.test(value) || /^\([1-9]{2}\) 9[0-9]{4}-[0-9]{4}$/.test(value);
       if (!telefoneValido && value.length < 16) {
-        setShowError({ ...showError, telefone: true });
+        setShowError((prevState) => ({ ...prevState, telefone: true }));
       } else {
-        setShowError({ ...showError, telefone: false });
+        setShowError((prevState) => ({ ...prevState, telefone: false }));
       }
     }
     if (name === "celular") {
       const celularValido = /^\([1-9]{2}\) [2-9][0-9]{3,4}-[0-9]{4}$/.test(value) || /^\([1-9]{2}\) 9[0-9]{4}-[0-9]{4}$/.test(value);
       if (!celularValido && value.length < 16) {
-        setShowError({ ...showError, celular: true });
+        setShowError((prevState) => ({ ...prevState, celular: true }));
       } else {
-        setShowError({ ...showError, celular: false });
+        setShowError((prevState) => ({ ...prevState, celular: false }));
       }
     }
     if (name === "email") {
       const emailValido = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
       if (!emailValido && value.length < 50) {
-        setShowError({ ...showError, email: true });
+        setShowError((prevState) => ({ ...prevState, email: true }));
       } else {
-        setShowError({ ...showError, email: false });
+        setShowError((prevState) => ({ ...prevState, email: false }));
       }
     }
     setFormData({ ...formData, [name]: value });
   };
+
   const handleClearForm = () => {
-    setFormData({ ...formData, endereco: "", bairro: "", municipio: "", uf: "", cep: "" })
-    setShowError({ ...showError, cep: false })
+    setFormData((prevState) => ({ ...prevState, endereco: "", bairro: "", municipio: "", uf: "", cep: "" }));
+    setShowError((prevState) => ({ ...prevState, cep: false }));
   };
+
   const onSave = () => {
     let hasError = false;
     const newShowError = { ...showError };
@@ -121,6 +123,20 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
   const onCancel = () => {
     console.log("Edit canceled");
     handleCloseEdit()
+  };
+
+
+  const handleSaveModalProsserguir = async () => {
+    setLoading(true);
+    await generateProtocolo()
+      .then(() => {
+        setShowModalConfirm(false);
+        setShowModalUpdate(true);
+      })
+      .catch(() => { })
+      .finally(() => {
+        setLoading(false);
+      });
   };
   return (
     <ContainerEdit title={"Endereço residencial"} onSave={onSave} onCancel={onCancel}>
@@ -263,7 +279,7 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
           text={"Você está prestes a alterar seus dados cadastrais. Tem certeza que deseja prosseguir?"}
           text_sucess={"Sim, prosseguir"}
           onClose={() => setShowModalConfirm(false)}
-          onSave={() => { setShowModalUpdate(true), setShowModalConfirm(false) }}
+          onSave={() => { handleSaveModalProsserguir }}
         />
       )}
       {showModalUpdate && (
