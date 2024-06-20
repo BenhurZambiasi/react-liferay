@@ -4,6 +4,14 @@
   gap: 48px;
   height: 100%;
 
+  .dados-beneficiario-formulario-erro {
+    color: rgb(218, 20, 28);
+    font-family: "Unimed Sans";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
   .endereco-residencial-edit-limpar-form {
     height: 100px;
     width: 48.6%;
@@ -11,9 +19,11 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;
+
     .material-symbols-outlined {
       font-size: 20px;
     }
+
     div {
       cursor: pointer;
     }
@@ -77,9 +87,11 @@
       height: 30px;
       justify-content: center;
     }
+
     .endereco-residencial-edit-container-arquivo {
       width: 100% !important;
     }
+
     .endereco-residencial-edit-container-arquivos {
       flex-direction: column;
     }

@@ -11,18 +11,25 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
   const [formData, setFormData] = useState({
     cep: "",
     endereco: "",
-    numero: "",
-    complemento: "",
     bairro: "",
     municipio: "",
     uf: "",
+    numero: "",
+    complemento: "",
     telefone: "",
     ramal: "",
     celular: "",
     email: "",
     comprovante: [],
   });
-  const [comprovantes, setComprovantes] = useState([]);
+  const [showError, setShowError] = useState({
+    cep: false,
+    numero: false,
+    telefone: false,
+    celular: false,
+    email: false,
+    comprovante: false,
+  });
   const [showModalConfirm, setShowModalConfirm] = useState(false);
   const [showModalUpdate, setShowModalUpdate] = useState(false);
 
@@ -32,6 +39,7 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
       if (formattedCep.length === 8) {
         const addressData = await fetchAddress(formattedCep);
         if (addressData) {
+          setShowError({ ...showError, cep: false });
           setFormData((prevData) => ({
             ...prevData,
             endereco: addressData.street,
@@ -39,6 +47,8 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
             municipio: addressData.city,
             uf: addressData.state,
           }));
+        } else {
+          setShowError({ ...showError, cep: true });
         }
       }
     };
@@ -49,24 +59,64 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
   }, [formData.cep]);
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "comprovante") {
-      setFormData((prevData) => {
-        const updatedData = {
-          ...prevData,
-          [name]: [...prevData[name], ...files],
-        };
-        console.log(updatedData.comprovante);
-        return updatedData;
-      });
+    const { name, value } = e.target;
+
+    if (name === "numero" && !value.length) {
+      setShowError({ ...showError, numero: true });
     } else {
-      setFormData({ ...formData, [name]: value });
+      setShowError({ ...showError, numero: false });
     }
+    if (name === "telefone") {
+      const telefoneValido = /^\([1-9]{2}\) [2-9][0-9]{3,4}-[0-9]{4}$/.test(value) || /^\([1-9]{2}\) 9[0-9]{4}-[0-9]{4}$/.test(value);
+      if (!telefoneValido && value.length < 16) {
+        setShowError({ ...showError, telefone: true });
+      } else {
+        setShowError({ ...showError, telefone: false });
+      }
+    }
+    if (name === "celular") {
+      const celularValido = /^\([1-9]{2}\) [2-9][0-9]{3,4}-[0-9]{4}$/.test(value) || /^\([1-9]{2}\) 9[0-9]{4}-[0-9]{4}$/.test(value);
+      if (!celularValido && value.length < 16) {
+        setShowError({ ...showError, celular: true });
+      } else {
+        setShowError({ ...showError, celular: false });
+      }
+    }
+    if (name === "email") {
+      const emailValido = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+      if (!emailValido && value.length < 50) {
+        setShowError({ ...showError, email: true });
+      } else {
+        setShowError({ ...showError, email: false });
+      }
+    }
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleClearForm = () => {
+    setFormData({ ...formData, endereco: "", bairro: "", municipio: "", uf: "", cep: "" })
+    setShowError({ ...showError, cep: false })
   };
   const onSave = () => {
-    console.log("Data saved:", formData);
-    setShowModalConfirm(true);
+    let hasError = false;
+    const newShowError = { ...showError };
+
+    Object.keys(showError).forEach((key) => {
+      if (!formData[key] && !showError[key]) {
+        newShowError[key] = true;
+        hasError = true;
+      }
+    });
+
+    setShowError(newShowError);
+    if (Object.values(showError).includes(true)) {
+      return;
+    }
+    if (!hasError) {
+      console.log("Data saved:", formData);
+      setShowModalConfirm(true);
+    }
   };
+
 
   const onCancel = () => {
     console.log("Edit canceled");
@@ -79,15 +129,18 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
         <label htmlFor="entregaCorrespondencias" className="ml-2 mb-0">Desejo que as demais correspondências sejam entregues neste endereço</label>
       </div>
       <div className="d-flex gap-5 endereco-residencial-edit-container-cep">
-        <TextField
-          label={"Cep"}
-          name={"cep"}
-          onChange={handleChange}
-          value={Mask("000000-00", formData.cep)}
-          required
-        />
+        <div className="container-textfield w-100">
+          <TextField
+            label={"Cep"}
+            name={"cep"}
+            onChange={handleChange}
+            value={Mask("000000-00", formData.cep)}
+            required
+          />
+          {showError.cep && (<span className="dados-beneficiario-formulario-erro">Insira um cep valido.</span>)}
+        </div>
         <div className="d-flex align-items-center endereco-residencial-edit-limpar-form">
-          <div className="d-flex align-items-center" onClick={() => setFormData({ ...formData, endereco: "", bairro: "", municipio: "", uf: "", cep: "" })}>
+          <div className="d-flex align-items-center" onClick={() => handleClearForm()}>
             <span className="material-symbols-outlined position-static">
               delete
             </span>
@@ -128,50 +181,66 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
         />
       </div>
       <div className="d-flex gap-5 flex-wrap">
-        <TextField
-          label={"Número"}
-          name={"numero"}
-          onChange={handleChange}
-          value={formData.numero}
-          required
-        />
-        <TextField
-          label={"Complemento"}
-          name={"complemento"}
-          onChange={handleChange}
-          value={formData.complemento}
-        />
+        <div className="container-textfield w-100">
+          <TextField
+            label={"Número"}
+            name={"numero"}
+            onChange={handleChange}
+            value={formData.numero}
+            required
+          />
+          {showError.numero && (<span className="dados-beneficiario-formulario-erro">Insira um numero residencial valido.</span>)}
+        </div>
+        <div className="container-textfield w-100">
+          <TextField
+            label={"Complemento"}
+            name={"complemento"}
+            onChange={handleChange}
+            value={formData.complemento}
+          />
+        </div>
       </div>
       <div className="d-flex gap-5 flex-wrap">
-        <TextField
-          label={"Telefone"}
-          name={"telefone"}
-          onChange={handleChange}
-          value={Mask("(00) 00000-0000", formData.telefone)}
-          required
-        />
-        <TextField
-          label={"Ramal"}
-          name={"ramal"}
-          onChange={handleChange}
-          value={formData.ramal}
-        />
+        <div className="container-textfield w-100">
+          <TextField
+            label={"Telefone"}
+            name={"telefone"}
+            onChange={handleChange}
+            value={Mask("(00) 00000-0000", formData.telefone)}
+            required
+          />
+          {showError.telefone && (<span className="dados-beneficiario-formulario-erro">Insira um numero de telefone valido.</span>)}
+        </div>
+        <div className="container-textfield w-100">
+          <TextField
+            label={"Ramal"}
+            name={"ramal"}
+            onChange={handleChange}
+            value={formData.ramal}
+          />
+        </div>
       </div>
       <div className="d-flex gap-5 flex-wrap">
-        <TextField
-          label={"Celular"}
-          name={"celular"}
-          onChange={handleChange}
-          value={Mask("(00) 00000-0000", formData.celular)}
-          required
-        />
-        <TextField
-          label={"E-mail"}
-          name={"email"}
-          onChange={handleChange}
-          value={formData.email}
-          required
-        />
+        <div className="container-textfield w-100">
+          <TextField
+            label={"Celular"}
+            name={"celular"}
+            onChange={handleChange}
+            value={Mask("(00) 00000-0000", formData.celular)}
+            required
+          />
+          {showError.celular && (<span className="dados-beneficiario-formulario-erro">Insira um numero de celular valido.</span>)}
+        </div>
+        <div className="container-textfield w-100">
+          <TextField
+            label={"E-mail"}
+            name={"email"}
+            onChange={handleChange}
+            value={formData.email}
+            required
+          />
+          {showError.email && (<span className="dados-beneficiario-formulario-erro">Insira um email valido.</span>)}
+        </div>
       </div>
       <div>
         <div className="form-reembolso">
@@ -179,11 +248,12 @@ export const EditEnderecoResidencial = ({ handleCloseEdit }) => {
             title="Anexar comprovante de endereço residencial"
             required
             placeholder="Selecione um arquivo"
-            onChange={setComprovantes}
+            onChange={handleChange}
             icon={() => (
               <span className="material-symbols-outlined position-static">attach_file</span>
             )}
           />
+          {showError.comprovante && (<span className="dados-beneficiario-formulario-erro">Insira um comprovante valido.</span>)}
         </div>
       </div>
 

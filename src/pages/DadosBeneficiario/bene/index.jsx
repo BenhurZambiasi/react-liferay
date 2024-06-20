@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./bene.scss";
+
 const bene = [
   {
     nome: "Luciano Dias Scheffer",
@@ -41,6 +42,7 @@ const bene = [
 
 export const Beneficiarios = ({ title }) => {
   const [beneficiarios, setBeneficiarios] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleSort = (a, b) => {
     if (a.tipo === "Titular" && b.tipo !== "Titular") {
@@ -61,43 +63,51 @@ export const Beneficiarios = ({ title }) => {
   useEffect(() => {
     setTimeout(() => {
       setBeneficiarios(bene);
+      setLoading(false);
     }, 1000);
   }, []);
 
   return (
     <div className="container container-benef">
-      {beneficiarios.sort(handleSort).map((benef) => {
-        return (
-          <div
-            className="container-card-bene"
-            data-active={benef.situacao == "ATIVO"}
-            key={benef.cartao}>
-            <div className="content-info-bene">
-              <div className="info-bene">
-                <span className="first">
-                  {benef.tipo}: <b>{benef.nome}</b>
-                </span>
-                <span>{benef.cartao}</span>
+      {loading ? (
+        <div className="d-flex justify-content-center">
+          <div className="loading-spinner" />
+        </div>
+      ) : (
+        beneficiarios.sort(handleSort).map((benef) => {
+          return (
+            <div
+              className="container-card-bene"
+              data-active={benef.situacao === "ATIVO"}
+              key={benef.cartao}
+            >
+              <div className="content-info-bene">
+                <div className="info-bene">
+                  <span className="first">
+                    {benef.tipo}: <b>{benef.nome}</b>
+                  </span>
+                  <span>{benef.cartao}</span>
+                </div>
+                <div className="info-bene">
+                  <span>Nascimento</span>
+                  <span>{benef.nascimento}</span>
+                </div>
+                <div className="info-bene">
+                  <span>Início Plano</span>
+                  <span>{benef.dt_inicio}</span>
+                </div>
+                <div className="info-bene">
+                  <span>Carência</span>
+                  <span>{benef.carencia}</span>
+                </div>
               </div>
-              <div className="info-bene">
-                <span>Nascimento</span>
-                <span>{benef.nascimento}</span>
-              </div>
-              <div className="info-bene">
-                <span>Início Plano</span>
-                <span>{benef.dt_inicio}</span>
-              </div>
-              <div className="info-bene">
-                <span>Carência</span>
-                <span>{benef.carencia}</span>
+              <div className="info-status">
+                <span>{benef.situacao}</span>
               </div>
             </div>
-            <div className="info-status">
-              <span>{benef.situacao}</span>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })
+      )}
     </div>
   );
 };
