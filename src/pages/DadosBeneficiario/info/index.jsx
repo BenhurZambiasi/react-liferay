@@ -24,7 +24,7 @@ export const Info = () => {
     dtSolicitacao: "",
     observacao: "",
   });
-  
+
   const [dadosDoCadastroInfo, setDadosDoCadastroInfo] = useState({
     codigo: "",
     codigoAntigo: "",
@@ -160,7 +160,7 @@ export const Info = () => {
     {
       title: "Dados do cadastro",
       Component: () => <DadosCadastro protocoloDados={protocoloDados} dadosDoCadastro={dadosDoCadastroInfo} />,
-      hasEdit: true,
+      hasEdit: protocoloDados.status !== "" ? false : true,
     },
     {
       title: "Endereço residencial",
@@ -196,9 +196,9 @@ export const Info = () => {
           />
         );
       case 1:
-        return <EditEnderecoResidencial 
-        handleCloseEdit={handleCloseEdit}
-        enderecoResidencial={enderecoResidencialInfo} />;
+        return <EditEnderecoResidencial
+          handleCloseEdit={handleCloseEdit}
+          enderecoResidencial={enderecoResidencialInfo} />;
       case 2:
         return <EditEnderecoCorrespondencia />;
       case 3:
@@ -227,7 +227,7 @@ export const Info = () => {
 
   return (
     <div>
-      <div className="container d-flex flex-column gap-3">
+      <div className="container d-flex flex-column gap-3 p-0 pl-sm-4 pr-sm-4">
         {loading ? (
           <div className="d-flex justify-content-center">
             <div className="loading-spinner" />
@@ -255,3 +255,4 @@ export const Info = () => {
     </div>
   );
 };
+

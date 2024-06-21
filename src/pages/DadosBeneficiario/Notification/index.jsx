@@ -13,15 +13,22 @@ export const Notification = ({
     title == "Aprovado"
       ? "aprovada"
       : title == "Pendente"
-      ? "em-andamento"
-      : "rejeitada";
+        ? "em-andamento"
+        : "rejeitada";
 
   return (
     <div
       className={`dados-beneficiario-cadastro-notification-${notificatioType}`}>
-      <span className="dados-beneficiario-cadastro-notification-title">
-        Solicitação de alteração cadastral {notificatioType.replace("-", " ")}
-      </span>
+      <div>
+        <span class="material-symbols-outlined">
+          {notificatioType === "em-andamento" && "pending"}
+          {notificatioType === "aprovada" && "check_circle"}
+          {notificatioType === "rejeitada" && "cancel"}
+        </span>
+        <span className="dados-beneficiario-cadastro-notification-title">
+          Solicitação de alteração cadastral {notificatioType.replace("-", " ")}
+        </span>
+      </div>
       {notificatioType === "em-andamento" && (
         <span className="dados-beneficiario-cadastro-notification-text">
           Uma solicitação de alteração foi realizada em{" "}
