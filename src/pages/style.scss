@@ -1,0 +1,11 @@
+.teste-pai {
+  background: red;
+
+  &:has(.teste-filho[data-position="bottom"]) {
+    background: blue;
+  }
+
+  &:has(.teste-filho[data-position="top"]) {
+    background: green;
+  }
+}
