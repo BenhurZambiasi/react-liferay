@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-export const SelectField = ({
+export const Select = ({
   value,
   options = [],
   onChange,
-  label,
   name,
   error,
   required,
@@ -12,9 +11,8 @@ export const SelectField = ({
   placeholder = '',
   ...rest
 }) => {
-  const [openOptions, setOpenOptions] = useState(false);
   const ref = useRef(null);
-
+  const [openOptions, setOpenOptions] = useState(false);
   const handleClickOutside = event => {
     if (ref.current && !ref.current.contains(event.target)) {
       setOpenOptions(false);
@@ -29,34 +27,9 @@ export const SelectField = ({
     };
   }, []);
 
-  useEffect(() => {
-    if (openOptions) {
-      const opc = document.getElementById(`${name}-options`);
-      const op = document.getElementById(`${name}-${value}-option`);
-
-      if (op) {
-        op.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center',
-        });
-      }
-      if (opc && !value) {
-        opc.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-      }
-    }
-  }, [openOptions, value, name]);
-
-  const labelPorValue = Object.fromEntries(options.map(option => [option.value, option.label]));
-
+  const labelperValue = Object.fromEntries(options.map(({ label, value }) => [value, label]));
   return (
-    <div className="un-container-select-field d-flex flex-column gap-2 w-100" data-error={!!error}>
-      <label className="label-select m-0" htmlFor={name} onClick={() => setOpenOptions(!openOptions)}>
-        {label} {required && <span>*</span>}
-      </label>
+    <div className="select-field-calendar d-flex flex-column gap-2">
       <div className="container-select position-relative w-100" data-open={openOptions} ref={ref}>
         <div className="input-container" onClick={() => setOpenOptions(!openOptions)}>
           <input
@@ -64,13 +37,13 @@ export const SelectField = ({
             type="text"
             id={name}
             name={name}
-            value={labelPorValue[value]}
+            value={labelperValue[value]}
             onFocus={onClearError}
             readOnly
             placeholder={placeholder}
             {...rest}
           />
-          <span className="material-symbols-outlined icon-arrow-field">keyboard_arrow_down</span>
+          <span className="material-symbols-outlined icon-arrow-field">unfold_more</span>
         </div>
         <ul
           id={`${name}-options`}
@@ -94,7 +67,6 @@ export const SelectField = ({
           })}
         </ul>
       </div>
-      {error && <span className="error-container filled">{error}</span>}
     </div>
   );
 };

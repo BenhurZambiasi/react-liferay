@@ -1,0 +1,220 @@
+.un-date-picker-field {
+  .input-date-picker {
+    width: 100%;
+
+    .input-date-picker-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 8px;
+      border: 1px solid var(--secondary-secondary-l-2, #c4c4c4);
+      background: var(--light-white, #fff);
+      padding: 8px;
+      gap: 8px;
+      input[type='date'] {
+        border: none;
+        outline: none;
+        width: 100%;
+        &::-webkit-calendar-picker-indicator {
+          display: none;
+        }
+      }
+      span {
+        user-select: none;
+        cursor: pointer;
+        color: #808080;
+      }
+    }
+  }
+
+  .calendar {
+    max-width: 350px;
+    min-width: 270px;
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    z-index: 10;
+    padding: 16px;
+    top: 72px;
+    border-radius: 8px;
+    border: 1px solid var(--light-light-d-1, #e2e4ea);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.12);
+
+    .calendar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+
+      .btn-calendar {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        span {
+          font-size: 16px;
+        }
+      }
+
+      .select-field-calendar {
+        .container-select {
+          .input-container {
+            display: flex;
+            align-items: center;
+            flex: 1 0 0;
+            padding: 0 6px;
+            align-self: stretch;
+            border-radius: 8px;
+            background: var(--light-white, #fff);
+
+            .select-input {
+              cursor: default;
+              outline: none;
+              height: 100%;
+              padding: 8px 4px;
+              border: none;
+              font-size: 14px;
+              font-style: normal;
+              color: var(--dark-dark-l-1, #303030);
+              text-align: center;
+              text-transform: capitalize;
+
+              /* 14/Semibold */
+              font-family: 'Unimed Sans';
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 150%; /* 21px */
+
+              /* 14px */
+              &:disabled {
+                background: #f7f8f9;
+              }
+            }
+
+            &:has(.select-input:disabled) {
+              background: #f7f8f9;
+
+              .icon-arrow {
+                cursor: default;
+              }
+            }
+          }
+
+          .options {
+            opacity: 0;
+            list-style: none;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
+            max-height: calc(40px * 7);
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+              width: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              border-radius: 62.4375rem;
+              background: var(--secondary-secondary-l-1, #808080);
+            }
+
+            transition: transform 0.3s ease-in-out;
+            -webkit-transition: transform 0.3s ease-in-out;
+            -moz-transition: transform 0.3s ease-in-out;
+            -ms-transition: transform 0.3s ease-in-out;
+            -o-transition: transform 0.3s ease-in-out;
+
+            .option {
+              margin: 0;
+              display: flex;
+              padding: 8px;
+              margin: 8px 0;
+              color: #333;
+              font-family: 'Unimed Sans';
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 21px;
+              /* 150% */
+              border: none !important;
+
+              &:hover {
+                background: var(--light-light, #f4f4f4);
+                cursor: pointer;
+              }
+
+              &[data-active='true'] {
+                background: var(--light-light, #f4f4f4);
+              }
+            }
+          }
+
+          &[data-open='true'] {
+            .input-container {
+              border-color: #00995c;
+            }
+
+            .options {
+              display: block !important;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      height: 250px;
+
+      .calendar-day {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        user-select: none;
+        cursor: pointer;
+        font-size: 14px;
+        color: var(--secondary-secondary, #4d4d4d);
+        font-family: 'Unimed Sans';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+        &.disabled {
+          cursor: default;
+          color: #dedede;
+          &:hover {
+            background-color: transparent;
+            color: #dedede;
+          }
+        }
+
+        &.marked {
+          background-color: #00995c;
+          color: var(--primary-primary, #fff);
+        }
+
+        &:hover {
+          background-color: #e2f4ed;
+          color: var(--primary-primary, #00995c);
+          text-align: center;
+          font-family: 'Unimed Sans';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%; /* 21px */
+        }
+      }
+    }
+  }
+}

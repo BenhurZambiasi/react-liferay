@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from 'react';
 
-const fetchCep = async (cep) => {
+const fetchCep = async cep => {
   try {
     const route = `https://brasilapi.com.br/api/cep/v1/${cep}`;
     const response = await fetch(route);
@@ -16,18 +16,18 @@ export const CepField = ({
   label,
   disabled,
   name,
-  type = "text",
+  type = 'text',
   value,
   onChange,
   onClearError,
   error,
-  placeholder = "",
+  placeholder = '',
   register,
   ...props
 }) => {
   const handleChange = async ({ target }) => {
     const { name, value } = target;
-    const valueFormated = value.replaceAll(/\D/g, "");
+    const valueFormated = value.replaceAll(/\D/g, '');
 
     onChange({ name, value: valueFormated, ok: true });
     if (valueFormated.length >= 8) {
@@ -37,10 +37,8 @@ export const CepField = ({
     }
   };
   return (
-    <div
-      className="un-container-text-field d-flex flex-column gap-2"
-      data-error={!!error}>
-      <label htmlFor={name} className="m-0">
+    <div className="un-container-text-field d-flex flex-column gap-2" data-error={!!error}>
+      <label htmlFor={name} className="label-cep m-0">
         {label} {required && <span>*</span>}
       </label>
       {register ? (

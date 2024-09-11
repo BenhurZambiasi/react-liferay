@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useOnClickOutside } from '../hooks/useOnClickoutSide';
 
 /**
@@ -12,7 +12,8 @@ import { useOnClickOutside } from '../hooks/useOnClickoutSide';
  * @param {string} props.placeholder - Placeholder do campo
  * @param {string} props.inputPlaceholder - Placeholder do campo de texto
  * @param {string} props.error - Mensagem de erro
- * @param {boolean} props.limit - Placeholder do campo de texto
+ * @param {number} props.limit - Placeholder do campo de texto
+ * @param {boolean} props.required - Placeholder do campo de texto
  * @param {function} props.customRenderOption - Função de callback para renderizar a opção
  * @param {function} props.onClearError - Função para limpar o erro
  */
@@ -29,6 +30,7 @@ export const AutoCompleteField = ({
   limit = 0,
   error = '',
   onClearError,
+  required,
 }) => {
   const hasLimit = Boolean(limit);
 
@@ -75,6 +77,7 @@ export const AutoCompleteField = ({
     } else {
       setSearch(labelPorValue[option.value]);
       onChange({ target: { value: option.value, name } });
+      setIsOpen(false);
     }
   };
 
@@ -84,9 +87,19 @@ export const AutoCompleteField = ({
   };
 
   const handleOpenOptions = state => {
-    onClearError && onClearError();
+    onClearError && onClearError({ target: { name } });
 
     setIsOpen(state);
+  };
+
+  const handleSearch = value => {
+    setSearch(value);
+    onChange({ target: { value: '', name } });
+  };
+
+  const handleClearSearch = () => {
+    setSearch('');
+    onChange({ target: { value: '', name } });
   };
 
   return (
@@ -98,6 +111,7 @@ export const AutoCompleteField = ({
           onClick={() => handleOpenOptions(!isOpen)}
         >
           {label}
+          {required && <span className="required-field">*</span>}
         </label>
       )}
       <div className="container-input-result" ref={ref}>
@@ -111,7 +125,7 @@ export const AutoCompleteField = ({
                 type="text"
                 name={name}
                 id={name}
-                onChange={e => setSearch(e.target.value)}
+                onChange={e => handleSearch(e.target.value)}
                 placeholder={isOpen ? inputPlaceholder : placeholder}
               />
             </Fragment>
@@ -129,7 +143,13 @@ export const AutoCompleteField = ({
               )}
             </div>
           )}
-          <span className="material-symbols-outlined un-icon-arrow-auto-complete-field">keyboard_arrow_down</span>
+          {isOpen && search.length ? (
+            <span className="material-symbols-outlined clear-search-auto-complete" onClick={handleClearSearch}>
+              close
+            </span>
+          ) : (
+            <span className="material-symbols-outlined un-icon-arrow-auto-complete-field">keyboard_arrow_down</span>
+          )}
         </div>
 
         <div className="options-auto-complete">
@@ -191,7 +211,7 @@ export const AutoCompleteField = ({
           </ul>
         </div>
       </div>
-      {error && <span className="error-container">{error}</span>}
+      {error && <span className="error-container filled">{error}</span>}
     </div>
   );
 };

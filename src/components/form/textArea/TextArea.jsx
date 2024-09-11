@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const TextAreaField = ({
   name,
@@ -7,12 +7,12 @@ export const TextAreaField = ({
   error,
   required,
   onClearError,
-  placeholder = "",
+  placeholder = '',
   ...rest
 }) => {
   return (
     <div className="un-conntainer-textarea-field gap-2" data-error={!!error}>
-      <label className="m-0" htmlFor={name}>
+      <label className="label-textarea m-0" htmlFor={name}>
         {label}
         {required && <span>*</span>}
       </label>
@@ -28,9 +28,7 @@ export const TextAreaField = ({
       {error ? (
         <span className="error-container filled">{error}</span>
       ) : (
-        maxCaraterMessage && (
-          <span className="max-caracteres">{maxCaraterMessage}</span>
-        )
+        maxCaraterMessage && <span className="max-caracteres">{maxCaraterMessage}</span>
       )}
     </div>
   );

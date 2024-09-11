@@ -1,0 +1,10 @@
+export const STEPS = {
+  FROMULARIO: 1,
+  REVISAO: 2,
+  RESULTADO: 3,
+};
+
+export const FORM_TYPE = {
+  CONSULTA_MEDICA: 1,
+  OUTROS_PROCEDIMENTOS: 6,
+};
