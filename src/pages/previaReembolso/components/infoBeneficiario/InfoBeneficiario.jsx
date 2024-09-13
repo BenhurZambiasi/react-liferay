@@ -1,5 +1,5 @@
 import React from 'react';
-import './info.scss';
+
 import { usePrevisaoContext } from '../../context/usePrevisaoContext';
 
 export const InfoBeneficiario = () => {

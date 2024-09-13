@@ -1,4 +1,5 @@
 .previa-reembolso-container {
+  @import '../components/infoBeneficiario/info.scss';
   display: flex;
   max-width: 1016px;
   margin: 0 auto;
@@ -7,5 +8,194 @@
     .input-text {
       height: 39px;
     }
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--light-light-d-1, #e2e4ea);
+    background: var(--light-white, #fff);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.12);
+
+    .label-title-card {
+      color: #333;
+      font-family: 'Unimed Sans';
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 130%;
+    }
+    .label-info-card {
+      color: #4d4d4d;
+      font-family: 'Unimed Sans';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .btn-edit-card {
+      display: flex;
+      padding: 5.5px 12px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 4px;
+      border: 1px solid var(--secondary-secondary-l-2, #c4c4c4);
+      background: var(--light-white, #fff);
+
+      .material-symbols-outlined {
+        font-size: 18px;
+        color: var(--secondary-secondary, #4d4d4d);
+      }
+
+      .text-edit-card {
+        color: var(--secondary-secondary, #4d4d4d);
+        text-align: center;
+        font-family: 'Unimed Sans';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+      }
+    }
+
+    .container-field-card {
+      .label-field-card {
+        color: #4d4d4d;
+        font-family: 'Unimed Sans';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .text-field-card {
+        color: #282828;
+        font-family: 'Unimed Sans';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .file-field-card {
+        display: flex;
+        width: max-content;
+        max-width: 100%;
+        padding: 4px 8px;
+        align-items: center;
+        gap: 8px;
+        border-radius: 16px;
+        background: var(--light-light-l-1, #f7f8f9);
+        color: var(--secondary-secondary, #4d4d4d);
+        font-family: 'Unimed Sans';
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+
+        .file-field-card-icon {
+          font-size: 18px;
+          font-variation-settings: 'FILL' 1;
+        }
+      }
+    }
+  }
+
+  .un-date-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .label-date-picker {
+      color: #4d4d4d;
+      font-family: 'Unimed Sans';
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+
+      .required-field {
+        color: var(--danger-danger, #da1414);
+        font-family: 'Unimed Sans';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+      }
+    }
+
+    .date-picker {
+      border-radius: 8px;
+
+      border: 1px solid var(--secondary-secondary-l-2, #c4c4c4);
+      background: var(--light-white, #fff);
+
+      .input-group {
+        border: none;
+        .input-group-item {
+          border: none;
+          background: transparent;
+          box-shadow: none;
+
+          .form-control {
+            border: none;
+            box-shadow: none;
+            background: transparent;
+            height: 39px;
+          }
+
+          .input-group-inset-item {
+            border: none;
+            background: transparent;
+            box-shadow: none;
+
+            .date-picker-dropdown-toggle {
+              background: transparent;
+              * {
+                display: none;
+              }
+              &::after {
+                content: '\e878';
+                font-family: 'Material Symbols Outlined' !important;
+                font-size: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &[data-error='true'] {
+      .date-picker {
+        border: 1px solid #f48989;
+        background-color: #feefef;
+      }
+    }
+  }
+}
+
+.modal-sair {
+  max-width: 414px;
+  .title {
+    color: var(--dark-dark, #282828);
+    font-family: 'Unimed Sans';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 25px */
+  }
+  .description {
+    color: var(--secondary-secondary, #4d4d4d);
+    font-family: 'Unimed Sans';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .material-symbols-outlined {
+    color: #6b6c7e;
+    cursor: pointer;
+    font-size: 18px;
   }
 }

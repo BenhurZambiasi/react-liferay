@@ -1,4 +1,4 @@
-#root:has(.un-date-picker) ~ div .date-picker-calendar {
+body:has(.un-date-picker) > div .date-picker-calendar {
   .date-picker-date.date-picker-calendar-item {
     &:hover {
       background-color: #e2f4ed !important;
@@ -14,78 +14,6 @@
         background-color: #00995c !important;
         color: #fff !important;
       }
-    }
-  }
-}
-
-.un-date-picker {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-
-  .label-date-picker {
-    color: #4d4d4d;
-    font-family: 'Unimed Sans';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 150%;
-
-    .required-field {
-      color: var(--danger-danger, #da1414);
-      font-family: 'Unimed Sans';
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 150%;
-    }
-  }
-
-  .date-picker {
-    border-radius: 8px;
-
-    border: 1px solid var(--secondary-secondary-l-2, #c4c4c4);
-    background: var(--light-white, #fff);
-
-    .input-group {
-      border: none;
-      .input-group-item {
-        border: none;
-        background: transparent;
-        box-shadow: none;
-
-        .form-control {
-          border: none;
-          box-shadow: none;
-          background: transparent;
-          height: 39px;
-        }
-
-        .input-group-inset-item {
-          border: none;
-          background: transparent;
-          box-shadow: none;
-
-          .date-picker-dropdown-toggle {
-            background: transparent;
-            * {
-              display: none;
-            }
-            &::after {
-              content: '\e878';
-              font-family: 'Material Symbols Outlined' !important;
-              font-size: 24px;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &[data-error='true'] {
-    .date-picker {
-      border: 1px solid #f48989;
-      background-color: #feefef;
     }
   }
 }

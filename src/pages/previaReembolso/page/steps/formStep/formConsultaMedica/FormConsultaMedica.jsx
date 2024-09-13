@@ -6,9 +6,11 @@ import { dayjs, isFormatValidDate } from '../../../../../../utils/date';
 import { usePrevisaoContext } from '../../../../context/usePrevisaoContext';
 import { SelectField } from '../../../../../../components/form/selectField/SelectField';
 import { especialidadesConsultas } from '../../../../mock/mocks';
+import { STEPS } from '../../../../constants/constants';
 
 export const FormConsultaMedica = () => {
-  const { formConsultaMedica, handleChangeFormConsultaMedica } = usePrevisaoContext();
+  const { formConsultaMedica, handleChangeFormConsultaMedica, handleChangeStep, handleOpenModalSair } =
+    usePrevisaoContext();
 
   const [formDataError, setFormDataError] = useState({
     especialidade: '',
@@ -43,13 +45,14 @@ export const FormConsultaMedica = () => {
       setFormDataError(errors);
       return;
     }
+    handleChangeStep(STEPS.REVISAO);
   };
 
   return (
     <Fragment>
       <div className="d-flex flex-column gap-6 card-form">
         <span className="label-title-form">Dados da consulta médica</span>
-        <FormControl className="d-flex w-100 gap-4">
+        <FormControl className="d-flex w-100 gap-4 flex-column flex-md-row">
           <SelectField
             label="Especialidade"
             name="especialidade"
@@ -95,10 +98,11 @@ export const FormConsultaMedica = () => {
       </div>
 
       <Actions
-        className="mt-4"
+        className="mt-4 flex-column flex-md-row"
         titleBtnPrimary="Prosseguir"
         titleBtnSecondary="Cancelar"
         onClickBtnPrimary={handleValidate}
+        onClickBtnSecondary={handleOpenModalSair}
       />
     </Fragment>
   );

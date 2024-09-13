@@ -1,89 +1,89 @@
-@import "./select.css";
-@import "./class.css";
+@import './select.css';
+@import './class.css';
 
 @font-face {
-  font-family: "Unimed Slab";
+  font-family: 'Unimed Slab';
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("../fonts/unimedslab-bold-webfont.woff2") format("woff2"),
-    url("../fonts/unimedslab-bold-webfont.woff") format("woff"),
-    url("../fonts/unimedslab-bold-webfont.ttf") format("truetype");
+  src: url('../fonts/unimedslab-bold-webfont.woff2') format('woff2'),
+    url('../fonts/unimedslab-bold-webfont.woff') format('woff'),
+    url('../fonts/unimedslab-bold-webfont.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Unimed Slab";
+  font-family: 'Unimed Slab';
   font-weight: 700;
   font-style: italic;
   font-display: swap;
-  src: url("../fonts/unimedslab-bolditalic-webfont.woff2") format("woff2"),
-    url("../fonts/unimedslab-bolditalic-webfont.woff") format("woff"),
-    url("../fonts/unimedslab-bolditalic-webfont.ttf") format("truetype");
+  src: url('../fonts/unimedslab-bolditalic-webfont.woff2') format('woff2'),
+    url('../fonts/unimedslab-bolditalic-webfont.woff') format('woff'),
+    url('../fonts/unimedslab-bolditalic-webfont.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Unimed Slab";
+  font-family: 'Unimed Slab';
   font-style: 400;
   font-style: normal;
   font-display: swap;
-  src: url("../fonts/unimedslab-regular-webfont.woff2") format("woff2"),
-    url("../fonts/unimedslab-regular-webfont.woff") format("woff"),
-    url("../fonts/unimedslab-regular-webfont.ttf") format("truetype");
+  src: url('../fonts/unimedslab-regular-webfont.woff2') format('woff2'),
+    url('../fonts/unimedslab-regular-webfont.woff') format('woff'),
+    url('../fonts/unimedslab-regular-webfont.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Unimed Slab";
+  font-family: 'Unimed Slab';
   font-style: 400;
   font-style: italic;
   font-display: swap;
-  src: url("../fonts/unimedslab-regularitalic-webfont.woff2") format("woff2"),
-    url("../fonts/unimedslab-regularitalic-webfont.woff") format("woff"),
-    url("../fonts/unimedslab-regularitalic-webfont.ttf") format("truetype");
+  src: url('../fonts/unimedslab-regularitalic-webfont.woff2') format('woff2'),
+    url('../fonts/unimedslab-regularitalic-webfont.woff') format('woff'),
+    url('../fonts/unimedslab-regularitalic-webfont.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Unimed Sans";
+  font-family: 'Unimed Sans';
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("../fonts/unimedsans-regular-webfont.woff2") format("woff2"),
-    url("../fonts/unimedsans-regular-webfont.woff") format("woff"),
-    url("../fonts/unimedsans-regular-webfont.ttf") format("truetype");
+  src: url('../fonts/unimedsans-regular-webfont.woff2') format('woff2'),
+    url('../fonts/unimedsans-regular-webfont.woff') format('woff'),
+    url('../fonts/unimedsans-regular-webfont.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Unimed Sans";
+  font-family: 'Unimed Sans';
   font-weight: 400;
   font-style: italic;
   font-display: swap;
-  src: url("../fonts/unimedsans-regularitalic-webfont.woff2") format("woff2"),
-    url("../fonts/unimedsans-regularitalic-webfont.woff") format("woff"),
-    url("../fonts/unimedsans-regularitalic-webfont.ttf") format("truetype");
+  src: url('../fonts/unimedsans-regularitalic-webfont.woff2') format('woff2'),
+    url('../fonts/unimedsans-regularitalic-webfont.woff') format('woff'),
+    url('../fonts/unimedsans-regularitalic-webfont.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Unimed Sans";
+  font-family: 'Unimed Sans';
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("../fonts/unimedsans-bold-webfont.woff2") format("woff2"),
-    url("../fonts/unimedsans-bold-webfont.woff") format("woff"),
-    url("../fonts/unimedsans-bold-webfont.ttf") format("truetype");
+  src: url('../fonts/unimedsans-bold-webfont.woff2') format('woff2'),
+    url('../fonts/unimedsans-bold-webfont.woff') format('woff'),
+    url('../fonts/unimedsans-bold-webfont.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Unimed Sans";
+  font-family: 'Unimed Sans';
   font-weight: 700;
   font-style: italic;
   font-display: swap;
-  src: url("../fonts/unimedsans-bolditalic-webfont.woff2") format("woff2"),
-    url("../fonts/unimedsans-bolditalic.woff") format("woff");
+  src: url('../fonts/unimedsans-bolditalic-webfont.woff2') format('woff2'),
+    url('../fonts/unimedsans-bolditalic.woff') format('woff');
 }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Unimed Sans";
+  font-family: 'Unimed Sans';
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -105,10 +105,10 @@
   background: #555;
 }
 .material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 .material-icons {
-  font-family: "Material Icons";
+  font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
   font-size: 24px; /* Preferred icon size */
@@ -129,7 +129,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Support for IE. */
-  font-feature-settings: "liga";
+  font-feature-settings: 'liga';
 }
 
 .loading-spinner {
@@ -193,4 +193,269 @@
   width: 76px;
   text-align: left;
   font-weight: 600;
+}
+
+.un-modal {
+  .un-modal-overlay {
+    z-index: 1072;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    padding: 20px;
+
+    &.un-fade-in {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &.un-fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .un-modal-content {
+      margin: 0 auto;
+      position: relative;
+      background: white;
+      padding: 16px 24px;
+      border-radius: 5px;
+      max-height: 90vh;
+      overflow: auto;
+      max-width: max-content;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+
+      @media (max-width: 576.98px) {
+        padding: 16px;
+      }
+    }
+  }
+}
+
+.un-toast {
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  width: 100%;
+  height: max-content;
+  padding: 0 10px;
+
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+
+  &:has(.un-container-alert[data-position='top']) {
+    top: 0;
+
+    .un-container-alert {
+      justify-content: center;
+    }
+  }
+
+  &:has(.un-container-alert[data-position='top-left']) {
+    top: 0;
+
+    .un-container-alert {
+      justify-content: start;
+    }
+  }
+
+  &:has(.un-container-alert[data-position='top-right']) {
+    top: 0;
+
+    .un-container-alert {
+      justify-content: end;
+    }
+  }
+
+  &:has(.un-container-alert[data-position='bottom']) {
+    bottom: 0;
+
+    .un-container-alert {
+      justify-content: center;
+    }
+  }
+
+  &:has(.un-container-alert[data-position='bottom-left']) {
+    bottom: 0;
+
+    .un-container-alert {
+      justify-content: start;
+    }
+  }
+
+  &:has(.un-container-alert[data-position='bottom-right']) {
+    bottom: 0;
+
+    .un-container-alert {
+      justify-content: end;
+    }
+  }
+
+  .un-container-alert {
+    position: relative;
+    width: 100%;
+    display: flex;
+
+    .un-alert {
+      position: absolute;
+      cursor: default;
+      min-width: 200px;
+      max-width: 516px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px 0px rgba(39, 40, 51, 0.12);
+      padding: 16px 40px 16px 16px;
+
+      &.un-fade-in {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &.un-fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .message {
+        font-family: 'Unimed Sans';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%;
+      }
+
+      span[role='button'] {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      &.un-alert-success {
+        border: 1px solid var(--primary-primary-l-2, #99d6bf);
+        color: var(--primary-primary-d-2, #00663d);
+        background: var(--primary-primary-l-3, #e2f4ed);
+      }
+
+      &.un-alert-danger {
+        color: #da1414;
+        border: 1px solid var(--danger-danger-l-1, #f48989);
+        background: var(--danger-danger-l-2, #feefef);
+      }
+
+      &.un-alert-warning {
+        color: #b95000;
+        border: 1px solid var(--warning-warning-l-1, #ff8f39);
+        background: var(--warning-warning-l-2, #fff4ec);
+
+        .message {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}
+
+.un-btn {
+  padding: 16px 20px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 0.25rem;
+  background: #00995d;
+  border: none;
+  width: 100%;
+  min-width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Unimed Sans';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  white-space: nowrap;
+  max-height: 58px;
+  transition: all ease-in-out 0.2s;
+  -webkit-transition: all ease-in-out 0.2s;
+  -moz-transition: all ease-in-out 0.2s;
+  -ms-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &[data-variant='secondary'] {
+    border-radius: 4px;
+    border: 1px solid #c4c4c4;
+    background: var(--light-white, #fff);
+    color: #4d4d4d;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .loading-btn {
+    height: 29px;
+    width: 29px;
+    border-radius: 50%;
+    border: 4px solid #ccc;
+    border-left-color: #b1d34b;
+    animation: spin 1s linear infinite;
+    -webkit-animation: spin-btn 1s linear infinite;
+  }
+
+  @keyframes spin-btn {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  &:has(.loading-btn) {
+    pointer-events: none;
+  }
+}
+
+.un-config-card {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+
+  gap: 24px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #e2e4ea;
+  background: #fff;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.12);
+
+  span {
+    color: var(--dark-dark, #282828);
+    font-family: 'Unimed Sans';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%;
+  }
+
+  img {
+    object-fit: cover;
+  }
 }

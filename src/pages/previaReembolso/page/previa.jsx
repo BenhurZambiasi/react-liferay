@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { LineSteps } from '../components/lineSteps/lineSteps';
 import { Resultado } from './resultado/Resultado';
 import { Form } from './steps/formStep/Form';
 import { Revisao } from './steps/revisaoStep/Revisao';
-import './previa.scss';
+import { usePrevisaoContext } from '../context/usePrevisaoContext';
+import { STEPS } from '../constants/constants';
 
 export const Previa = () => {
-  const [step, setStep] = useState(1);
+  const { step } = usePrevisaoContext();
   return (
     <div className="previa-reembolso-container d-flex flex-column gap-8 mb-5">
       <LineSteps step={step} totalSteps={2} />
-      {step === 1 ? <Form /> : step === 2 ? <Revisao /> : <Resultado />}
+      {step === STEPS.FROMULARIO ? <Form /> : step === STEPS.REVISAO ? <Revisao /> : <Resultado />}
     </div>
   );
 };

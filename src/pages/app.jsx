@@ -1,6 +1,8 @@
 import { PrevisaoProvider } from './previaReembolso/context/usePrevisaoContext';
 import { Previa } from './previaReembolso/page/previa';
 import './style.scss';
+import '../pages/previaReembolso/page/previa.scss';
+import { Header } from './previaReembolso/components/header/Header';
 
 export const App = () => {
   const dadosBeneficiario = {
@@ -12,6 +14,7 @@ export const App = () => {
   return (
     <div className="container w-100 mt-3">
       <PrevisaoProvider dadosBeneficiario={dadosBeneficiario}>
+        <Header />
         <Previa />
       </PrevisaoProvider>
     </div>

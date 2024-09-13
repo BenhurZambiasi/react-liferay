@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 export const SelectField = ({
-  value,
+  value = '',
   options = [],
   onChange,
   label,
@@ -64,7 +64,7 @@ export const SelectField = ({
             type="text"
             id={name}
             name={name}
-            value={labelPorValue[value]}
+            value={labelPorValue[value] || ''}
             onFocus={onClearError}
             readOnly
             placeholder={placeholder}
