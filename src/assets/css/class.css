@@ -75,6 +75,9 @@ textarea {
   .gap-md-9 {
     gap: 3rem !important;
   }
+  .w-md-100 {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -104,5 +107,9 @@ textarea {
   }
   .gap-sm-9 {
     gap: 3rem !important;
+  }
+
+  .w-sm-100 {
+    width: 100% !important;
   }
 }

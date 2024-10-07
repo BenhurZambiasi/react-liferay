@@ -1,0 +1,139 @@
+.un-detalhe-reembolso {
+  $top_drawer: 120px;
+
+  $eita: var(--eita-meu);
+  padding: 0 48px;
+  background: $eita;
+  .content-detalhe {
+    height: calc(100% - var(--heigth-header) - 48px);
+    overflow: auto;
+    .box-info {
+      display: flex;
+      margin: 12px 0;
+      padding: 20px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--secondary-secondary-l-3, #dedede);
+      background: var(--light-white, #fff);
+    }
+
+    .divider {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background: #dedede;
+      }
+    }
+
+    .dados-procedimento {
+      padding: 10px 0;
+
+      .title {
+        color: #333;
+        font-family: 'Unimed Sans';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; /* 23.4px */
+      }
+
+      .container-fields {
+        padding: 4px;
+        .field {
+          .title {
+            color: #4d4d4d;
+            font-family: 'Unimed Sans';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+          .texto {
+            color: #282828;
+            font-family: 'Unimed Sans';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+          }
+        }
+      }
+    }
+
+    .envio-documentos {
+      padding-top: 10px;
+      .title {
+        color: #333;
+        font-family: 'Unimed Sans';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; /* 23.4px */
+      }
+      .container-anexos-reembolso {
+        padding: 10px 0;
+        .anexo-item {
+          padding-bottom: 10px;
+          .anexo-descricao {
+            color: #4d4d4d;
+            font-family: 'Unimed Sans';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+          .tag-anexo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 16px;
+            background: var(--light-light-l-1, #f7f8f9);
+            cursor: pointer;
+            max-width: 200px;
+            width: 100%;
+
+            .material-symbols-outlined {
+              font-variation-settings: 'FILL' 1;
+              color: #4d4d4d;
+              font-size: 18px;
+            }
+            .row-nome {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              color: var(--secondary-secondary, #4d4d4d);
+              font-family: 'Unimed Sans';
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 150%; /* 18px */
+            }
+            .tag-loading {
+              color: #00995d;
+              font-variation-settings: 'FILL' 1;
+              font-size: 16px;
+              animation: spin 1s linear infinite;
+              -webkit-animation: spin 1s linear infinite;
+            }
+            &:not(:has(.hide)) {
+              cursor: default;
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768.99px) {
+      height: calc(100% - var(--heigth-header) - 48px - #{$top_drawer});
+    }
+  }
+
+  @media (max-width: 768.99px) {
+    padding: 0 32px;
+  }
+
+  @media (max-width: 576.99px) {
+    padding: 0 24px;
+  }
+}

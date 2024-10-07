@@ -1,5 +1,18 @@
 import React from 'react';
 
+/**
+ * @param {Object} TextFieldProps
+ * @param {string} TextFieldProps.label - Label do campo
+ * @param {string} TextFieldProps.value - Valor do campo
+ * @param {string} TextFieldProps.name - Nome do campo
+ * @param {boolean} TextFieldProps.required - Se o campo é obrigatório
+ * @param {boolean} TextFieldProps.disabled - Se o campo é desabilitado
+ * @param {"text" | "money" | "search"| "number"} TextFieldProps.type - Tipo do campo
+ * @param {function} TextFieldProps.onChange - Função de callback para onChange
+ * @param {function} TextFieldProps.onClearError - Função de callback para onClearError
+ * @param {string} TextFieldProps.error - Erro do campo
+ * @param {string} TextFieldProps.placeholder - Placeholder do campo
+ */
 export const TextField = ({
   label,
   value,
@@ -26,6 +39,7 @@ export const TextField = ({
 
     return formattedValue;
   };
+
   const valueFormated =
     type === 'money' ? formatCurrency(value) : type === 'number' ? value.replaceAll(/\D/g, '') : value;
 
@@ -36,11 +50,11 @@ export const TextField = ({
           {label} {required && <span>*</span>}
         </label>
       )}
-      <div className="w-100 d-flex align-items-center gap-1">
-        <span className="material-symbols-outlined">search</span>
+      <div className="d-flex align-items-center input-container">
+        {type === 'search' && <span className="material-symbols-outlined">search</span>}
         <input
           disabled={disabled}
-          className="input-text bg-white align-items-center d-flex gap-4 py-2 px-3 "
+          className="input-text bg-white align-items-center d-flex"
           type={'text'}
           id={name}
           name={name}
