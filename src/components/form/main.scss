@@ -171,6 +171,10 @@
           li {
             padding: 16px 16px;
 
+            &.focused {
+              background-color: #f0f0f0; /* or any color to indicate focus */
+            } 
+
             &:hover {
               cursor: pointer;
               background-color: #f4f4f4;

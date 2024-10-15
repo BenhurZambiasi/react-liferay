@@ -1,0 +1,27 @@
+.un-tooltip {
+  position: relative;
+  width: max-content;
+
+  &::after {
+    content: attr(data-title);
+    position: absolute;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.884);
+    color: white;
+    border-radius: 4px;
+    width: max-content;
+    top: -100%;
+    right: 0;
+    padding: 4px;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+      transition: opacity ease-in-out 0.3s;
+      visibility: visible;
+    }
+  }
+}

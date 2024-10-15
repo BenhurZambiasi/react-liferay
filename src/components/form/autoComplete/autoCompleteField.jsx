@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { useOnClickOutside } from '../hooks/useOnClickoutSide';
 
 /**
@@ -40,6 +40,10 @@ export const AutoCompleteField = ({
 
   const [limitExceeded, setLimitExceeded] = useState('');
 
+  const [focusedOptionIndex, setFocusedOptionIndex] = useState(-1);
+
+  const optionsRef = useRef([]);
+
   const ref = useOnClickOutside(event => {
     if (!event.target.classList.contains(`${name}-field`)) {
       setIsOpen(false);
@@ -47,7 +51,17 @@ export const AutoCompleteField = ({
     }
   });
 
-  const optionsFiltered = options.filter(option => option.label.toLowerCase().includes(search.toLowerCase()));
+  const optionsFiltered = options.filter(option => {
+    const normalizedLabel = option.label
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+    const normalizedSearch = search
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+    return normalizedLabel.includes(normalizedSearch);
+  });
 
   const labelPorValue = Object.fromEntries(options.map(option => [option.value, option.label]));
 
@@ -102,6 +116,64 @@ export const AutoCompleteField = ({
     onChange({ target: { value: '', name } });
   };
 
+  useEffect(() => {
+    if (!isOpen) {
+      setSearch('');
+    }
+  }, [isOpen]);
+
+  const handleKeyDown = e => {
+    if (!isOpen) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setFocusedOptionIndex(prevIndex => (prevIndex < optionsFiltered.length - 1 ? prevIndex + 1 : prevIndex));
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setFocusedOptionIndex(prevIndex => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
+        break;
+      case 'Enter':
+        e.preventDefault();
+        if (focusedOptionIndex >= 0 && focusedOptionIndex < optionsFiltered.length) {
+          handleSelectOption(optionsFiltered[focusedOptionIndex]);
+        }
+        break;
+      case 'Escape':
+        setIsOpen(false);
+        break;
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      if (value) {
+        const indexValue = options.sort((a, b) => a.label.localeCompare(b.label)).findIndex(el => el.value === value);
+
+        optionsRef.current[indexValue].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
+      }
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen && focusedOptionIndex >= 0 && focusedOptionIndex < optionsRef.current.length) {
+      {
+        optionsRef.current[focusedOptionIndex].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
+      }
+    }
+  }, [focusedOptionIndex, isOpen]);
+
+  useEffect(() => {
+    setFocusedOptionIndex(-1);
+  }, [search]);
+
   return (
     <div className="un-container-auto-complete-field" data-open={isOpen} data-error={error ? true : false}>
       {label && (
@@ -119,6 +191,7 @@ export const AutoCompleteField = ({
           {!multiple || isOpen ? (
             <Fragment>
               <span className="material-symbols-outlined">search</span>
+
               <input
                 autoFocus
                 value={search}
@@ -126,7 +199,8 @@ export const AutoCompleteField = ({
                 name={name}
                 id={name}
                 onChange={e => handleSearch(e.target.value)}
-                placeholder={isOpen ? inputPlaceholder : placeholder}
+                onKeyDown={handleKeyDown}
+                placeholder={value ? labelPorValue[value] : isOpen ? inputPlaceholder : placeholder}
               />
             </Fragment>
           ) : (
@@ -143,7 +217,7 @@ export const AutoCompleteField = ({
               )}
             </div>
           )}
-          {isOpen && search.length ? (
+          {(isOpen && search.length) || labelPorValue[value] ? (
             <span className="material-symbols-outlined clear-search-auto-complete" onClick={handleClearSearch}>
               close
             </span>
@@ -187,24 +261,30 @@ export const AutoCompleteField = ({
               <span className="error-container filled limit-exceeded-auto-complete">{limitExceeded}</span>
             )}
           </div>
-          <ul className="options-auto-complete-field">
-            {optionsFiltered.map(option => {
-              const isSelected = multiple ? selected.some(item => item.value === option.value) : value === option.value;
-              return (
-                <li
-                  key={option.value}
-                  onClick={() => handleSelectOption(option)}
-                  className="option-auto-complete-field"
-                  data-selected={isSelected}
-                >
-                  {customRenderOption ? (
-                    customRenderOption(option)
-                  ) : (
-                    <span className="option-label">{option.label}</span>
-                  )}
-                </li>
-              );
-            })}
+          <ul className="options-auto-complete-field" role="listbox">
+            {optionsFiltered
+              .sort((a, b) => a.label.localeCompare(b.label))
+              .map((option, index) => {
+                const isSelected = multiple
+                  ? selected.some(item => item.value === option.value)
+                  : value === option.value;
+                return (
+                  <li
+                    key={option.value}
+                    ref={el => (optionsRef.current[index] = el)}
+                    onMouseEnter={() => setFocusedOptionIndex(index)}
+                    onClick={() => handleSelectOption(option)}
+                    className={`option-auto-complete-field ${focusedOptionIndex === index ? 'focused' : ''}`}
+                    data-selected={isSelected}
+                  >
+                    {customRenderOption ? (
+                      customRenderOption(option)
+                    ) : (
+                      <span className="option-label">{option.label}</span>
+                    )}
+                  </li>
+                );
+              })}
             {optionsFiltered.length === 0 && (
               <li className="option-auto-complete-field">Nenhum resultado encontrado</li>
             )}

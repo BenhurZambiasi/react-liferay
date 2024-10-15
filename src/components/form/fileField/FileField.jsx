@@ -7,6 +7,7 @@ import { WordIcon } from './icons/Word_icon';
 import { ImageIcon } from './icons/Image_icon';
 import { ZipIcon } from './icons/ZipIcon';
 import { DefaultIcon } from './icons/DefaultIcon';
+import { Tooltip } from '../../tooltip/tooltip';
 
 const toBase64 = async file =>
   await new Promise((resolve, reject) => {
@@ -45,6 +46,7 @@ export const FileField = ({
 
     if (file) {
       file.base64 = await toBase64(file);
+      file.extension = !file.name.includes('.') ? null : file.name.split('.').reverse()[0];
       const fileSizeInBytes = file.size;
       const maxSizeInBytes = maxSizePerFile * 1024 * 1024; // 25 MB em bytes
 
@@ -158,7 +160,9 @@ export const FileField = ({
             return (
               <div className="file-item" key={ind}>
                 <RenderIconTypeFile type={ext} />
+
                 <span className="text-truncate name-file"> {name}</span>
+
                 <span
                   className="material-symbols-outlined icon-delete-item-field"
                   onClick={() => handleRemoveFile(name)}

@@ -1,35 +1,29 @@
-import React, { useRef } from 'react';
-import { useReactToPrint } from 'react-to-print';
+import React, { useState } from 'react';
 import './app-teste.scss';
-const PrintableContent = React.forwardRef((props, ref) => {
-  return (
-    <div ref={ref}>
-      <div className="content">
-        {/* Conteúdo principal aqui */}
-        <p>Conteúdo da página...</p>
-        <p>Mais conteúdo...</p>
-      </div>
-      <div className="footer">
-        {/* O número da página será automaticamente incrementado aqui */}
-        <p className="page-number"></p>
-      </div>
-    </div>
-  );
-});
+import { FormControl } from '../components/form/formControl';
+import { FileField } from '../components/form/fileField/FileField';
+import { Tooltip } from '../components/tooltip/tooltip';
 
 export const AppTest = () => {
-  const componentRef = useRef();
-
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+  const [files, setFiles] = useState([]);
 
   return (
-    <div>
-      <button onClick={handlePrint}>Imprimir</button>
-      <div className="d-none">
-        <PrintableContent ref={componentRef} />
-      </div>
+    <div className="container mt-5">
+      <Tooltip text={'Eita'}>
+        <h1>Eita</h1>
+      </Tooltip>
+      <Tooltip text={'Meu Pai '}>
+        <h1>Meupai</h1>
+      </Tooltip>
+      <FormControl>
+        <FileField
+          label={'Files'}
+          name={'files'}
+          value={files}
+          onChange={({ target: { value } }) => setFiles(value)}
+          multiple
+        />
+      </FormControl>
     </div>
   );
 };

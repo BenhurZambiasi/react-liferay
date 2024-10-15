@@ -1,5 +1,5 @@
 import IMask from 'imask';
-export const mask = (mask, value) => {
+export const mask = ({ mask, value }) => {
   if (!value) return '';
 
   if (mask === 'currency') {
@@ -7,7 +7,7 @@ export const mask = (mask, value) => {
       style: 'currency',
       currency: 'BRL',
       minimumFractionDigits: 2,
-    }).format(value / 100);
+    }).format(value);
   }
   const createMask = IMask.createMask({ mask });
   return createMask.resolve(value);

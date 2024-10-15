@@ -1,0 +1,170 @@
+.pdf-container-coopart {
+  .header {
+    .info-page {
+      .title {
+        color: var(--dark-dark-d-1, #151515);
+        text-align: center;
+        font-family: 'Unimed Slab';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .description {
+        color: #4d4d4d;
+        text-align: center;
+        font-family: 'Unimed Sans';
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+
+    .box-beneficiario {
+      gap: 6px;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--light-light-d-1, #e2e4ea);
+      background: var(--light-white, #fff);
+
+      span {
+        color: var(--dark-dark-l-2, #404040);
+        font-family: 'Unimed Sans';
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        b {
+          color: var(--primary-primary-d-2, #00663d);
+          font-family: 'Unimed Sans';
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+      }
+
+      .card-text {
+        color: #333;
+        font-family: 'Unimed Sans';
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+
+    .info-icon {
+      font-size: 16px;
+      color: #4d4d4d;
+    }
+    .info-text {
+      color: var(--secondary-secondary, #4d4d4d);
+      font-family: 'Unimed Sans';
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  .filtro {
+    .periodo {
+      color: var(--dark-dark, #282828);
+      font-family: 'Unimed Slab';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      b {
+        color: #00663d;
+        font-weight: 700;
+      }
+    }
+    .importante {
+      color: var(--secondary-secondary, #4d4d4d);
+      font-family: 'Unimed Sans';
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 130%; /* 13px */
+      b {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .coopart-table {
+    .t-header {
+      div {
+        width: 110px;
+        padding: 8px 0px;
+        span {
+          color: var(--dark-dark, #282828);
+          font-family: 'Unimed Sans';
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 600;
+        }
+
+        &.h-prestador {
+          flex: 1;
+        }
+        &.h-value {
+          display: flex;
+          justify-content: end;
+          text-align: end;
+        }
+      }
+    }
+    .t-body {
+      width: 100%;
+
+      .divider {
+        height: 1px;
+        width: 100%;
+        background-color: #e2e4ea;
+      }
+      .row-teste {
+        width: 100%;
+        display: flex;
+        padding: 8px 0px;
+
+        .field {
+          color: var(--dark-dark-l-2, #404040);
+          font-family: 'Unimed Sans';
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          white-space: nowrap;
+          width: 110px;
+          span {
+            width: 100px;
+          }
+
+          &.value {
+            display: flex;
+            justify-content: end;
+            text-align: end;
+            font-weight: 600;
+          }
+
+          &.prestador {
+            flex: 1;
+          }
+        }
+      }
+    }
+  }
+}
+@media print {
+  @page {
+    margin: 1.27cm;
+    size: A4;
+  }
+  .pdf-content {
+    page-break-after: always;
+  }
+}
